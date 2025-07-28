@@ -13,6 +13,11 @@ export function middleware(request: NextRequest) {
 
   if (pathnameHasLocale) return;
 
+  // Handle root path specifically
+  if (pathname === '/') {
+    return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url));
+  }
+
   // Redirect to default locale if no locale is present
   return NextResponse.redirect(
     new URL(`/${defaultLocale}${pathname}`, request.url)
