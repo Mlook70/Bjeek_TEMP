@@ -1,17 +1,31 @@
-import { getDictionary } from '@/lib/getDictionary';
+import { getMessages } from '@/i18n';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 
-interface PageProps {
+interface HomePageProps {
   params: Promise<{
     locale: string;
   }>;
 }
 
-export default async function Home({ params }: PageProps) {
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}): Promise<Metadata> {
   const { locale } = await params;
-  const dictionary = await getDictionary(locale);
+  
+  return {
+    title: "SOON",
+    description: "Coming soon",
+  };
+}
 
+export default async function Home({ params }: HomePageProps) {
+  const { locale } = await params;
+  const messages = await getMessages(locale);
+  
   return (
     <div 
       className="min-h-screen flex items-center justify-center relative bg-cover bg-center bg-no-repeat"
@@ -19,11 +33,11 @@ export default async function Home({ params }: PageProps) {
         backgroundImage: 'url(/bg_1.png)',
       }}
     >
-      <div className="absolute inset-0  bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-opacity-50"></div>
       <LanguageSwitcher />
       <div className="text-center relative z-10">
         <h1 className="text-8xl md:text-9xl font-bold text-white tracking-wider">
-          {dictionary.soon}
+          {messages.soon}
         </h1>
         <div className="flex justify-center">
           <Image
