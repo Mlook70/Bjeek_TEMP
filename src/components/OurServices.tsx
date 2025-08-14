@@ -123,7 +123,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
           className="text-center mb-20"
         >
           <motion.h2 
-            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00b14f] to-white mb-6 leading-relaxed"
+            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#41fc95] to-white mb-6 leading-relaxed"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2 }}

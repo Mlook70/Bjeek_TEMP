@@ -46,7 +46,7 @@ const InvestmentOpportunity = ({ messages }: InvestmentOpportunityProps) => {
           className="text-center mb-20"
         >
           <motion.h2 
-            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00b14f] to-white mb-10 leading-relaxed py-4"
+            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#41fc95] to-white mb-6 leading-relaxed"
             style={{
               lineHeight: '1.3',
               paddingTop: '0.15em',
