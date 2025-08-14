@@ -1,3 +1,138 @@
 {
-  "soon": "PRONTO"
+  "soon": "PRONTO",
+  "hero": {
+    "heroTitle": "Invierte ahora en la primera app saudí integral de servicios de entrega",
+    "heroSubtitle1": "Recados, comida, paquetes y entrega de mercado... todo en una app.",
+    "heroSubtitle2": "Tu oportunidad comienza hoy, con una inversión simple y grandes retornos.",
+    "getStarted": "Sé socio del éxito",
+    "seeHowItWorks": "Ver cómo funciona"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "investment": "Oportunidad de Inversión",
+    "joinNow": "Únete Ahora"
+  },
+  "services": {
+    "servicesTitle": "¿Cuántas apps necesitas para entregar un pedido?",
+    "subtitle": "El mercado está lleno de aplicaciones dispersas... Bjeek reúne todos los servicios de entrega en una plataforma, con una experiencia fácil y rápida que satisface las necesidades del mercado saudí.",
+    "ride": {
+      "title": "Viajes (Bjeek Ride)",
+      "bullet1": "Servicio que proporciona transporte seguro y confiable.",
+      "bullet2": "Múltiples opciones de vehículos para todas las necesidades y presupuestos.",
+      "bullet3": "Sistema de seguimiento avanzado que permite a los clientes seguir su viaje en tiempo real.",
+      "bullet4": "Función de calificación de conductores para asegurar la calidad del servicio."
+    },
+    "food": {
+      "title": "Comida (Bjeek Food)",
+      "bullet1": "Asociación con restaurantes locales e internacionales.",
+      "bullet2": "Interfaz fácil de usar para navegar menús y personalizar pedidos.",
+      "bullet3": "Múltiples opciones de pago flexibles para todos los clientes.",
+      "bullet4": "Seguimiento de pedidos en tiempo real desde el pedido hasta la entrega."
+    },
+    "express": {
+      "title": "Pedidos (Bjeek Express)",
+      "bullet1": "Proporciona servicio integral de entrega para mercados y otras compras.",
+      "bullet2": "Capacidad de pedir cualquier cosa desde cualquier lugar de la ciudad.",
+      "bullet3": "Servicio de compras personal en nombre del cliente.",
+      "bullet4": "Opción de comunicación directa con el representante para asegurar la precisión del pedido."
+    },
+    "logistics": {
+      "title": "Correo (Bjeek Logistics)",
+      "bullet1": "Opciones de entrega diversas adecuadas para diferentes tamaños de correo y prioridades de entrega.",
+      "bullet2": "Los clientes pueden rastrear sus paquetes paso a paso desde la recogida hasta la entrega final, con notificaciones y actualizaciones regulares.",
+      "bullet3": "Nos comprometemos a asegurar la seguridad del correo a través de embalaje seguro y manejo cuidadoso.",
+      "bullet4": "Opciones de seguro disponibles para completa tranquilidad."
+    }
+  },
+  "investment": {
+    "title": "Tu oportunidad de invertir en un proyecto tecnológico saudí listo",
+    "features": [
+      {
+        "text": "La inversión comienza desde solo 20,000 SAR"
+      },
+      {
+        "text": "Proyecto tecnológico en desarrollo"
+      },
+      {
+        "text": "Modelo de ingresos diverso y claro"
+      },
+      {
+        "text": "Equipo saudí especializado"
+      },
+      {
+        "text": "Apoya la Visión 2030"
+      },
+      {
+        "text": "Expansión rápida en el mercado de entregas"
+      }
+    ],
+    "cta": "Ver archivo completo de oportunidad de inversión"
+  },
+  "trust": {
+    "title": "¿Por qué elegir Bjeek?",
+    "elements": [
+      {
+        "title": "Altos estándares técnicos",
+        "description": "La app fue desarrollada según los más altos estándares técnicos"
+      },
+      {
+        "title": "Gestión 100% saudí",
+        "description": "Gestión y operación 100% saudí"
+      },
+      {
+        "title": "Experiencia de usuario excepcional",
+        "description": "Experiencia de usuario cuidadosamente estudiada y probada"
+      },
+      {
+        "title": "Mercado en rápido crecimiento",
+        "description": "El mercado saudí está creciendo rápidamente en el sector de entregas"
+      }
+    ]
+  },
+  "footer": {
+    "company": {
+      "name": "Bjeek",
+      "description": "Bjeek reúne todos los servicios de entrega en una plataforma, con una experiencia fácil y rápida que satisface las necesidades del mercado saudí."
+    },
+    "quickLinks": {
+      "title": "Enlaces Rápidos",
+      "links": {
+        "home": "Inicio",
+        "services": "Servicios",
+        "about": "Acerca de",
+        "contact": "Contacto",
+        "investment": "Inversión"
+      }
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "email": "info@bjeek.sa",
+      "phone": "+966 50 123 4567",
+      "address": "Riyadh, Arabia Saudí"
+    },
+    "social": {
+      "title": "Síguenos",
+      "description": "Síguenos en redes sociales para las últimas noticias y actualizaciones"
+    },
+    "copyright": "© 2024 Bjeek. Todos los derechos reservados.",
+    "legal": {
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio"
+    }
+  },
+  "buttons": {
+    "more": "Más",
+    "close": "Cerrar"
+  },
+  "dashboard": {
+    "title": "Expectativas del Precio de las Acciones",
+    "subtitle": "Rastrea el crecimiento de tu inversión con expectativas de rendimiento futuro",
+    "chartTitle": "Gráfico de Proyección del Precio de las Acciones",
+    "chartSubtitle": "Rastrea el crecimiento del valor de tu inversión durante 5 años",
+    "legend": "Trayectoria de Crecimiento del Precio de las Acciones",
+    "years": "Años",
+    "priceLabel": "Precio de las Acciones (SAR)",
+    "tooltipPrice": "Precio de las Acciones",
+    "tooltipYear": "Año"
+  }
 } 

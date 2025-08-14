@@ -6,20 +6,13 @@ import { useEffect, useState } from 'react';
 
 const locales = [
   { code: 'en', name: 'English' },
+  { code: 'es', name: 'Español' },
   { code: 'ar', name: 'العربية' },
-  // HIDDEN OTHER LANGUAGES
-  // { code: 'es', name: 'Español' },
-  // { code: 'fr', name: 'Français' },
-  // { code: 'de', name: 'Deutsch' },
-  // { code: 'it', name: 'Italiano' },
-  // { code: 'pt', name: 'Português' },
-  // { code: 'ja', name: '日本語' },
-  // { code: 'ko', name: '한국어' },
-  // { code: 'zh', name: '中文' },
+  { code: 'fr', name: 'Français' },
 ];
 
-interface LanguageSwitcherProps {
-  className?: string;
+  interface LanguageSwitcherProps {
+    className?: string;
 }
 
 export default function LanguageSwitcher({ className = "" }: LanguageSwitcherProps) {
