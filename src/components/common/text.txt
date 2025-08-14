@@ -1,0 +1,186 @@
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+
+const ModernBackground: React.FC = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
+
+  useEffect(() => {
+    const updateMousePosition = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener('mousemove', updateMousePosition);
+    return () => window.removeEventListener('mousemove', updateMousePosition);
+  }, []);
+
+  return (
+    <>
+      {/* Modern Lamp Effect Background with Mouse Interaction */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Main spotlight effect - follows mouse */}
+        <motion.div 
+          className="absolute w-[800px] h-[800px] bg-gradient-to-r from-emerald-500/15 via-green-500/20 to-teal-500/15 rounded-full blur-3xl animate-pulse"
+          style={{
+            left: `${mousePosition.x}%`,
+            top: `${mousePosition.y}%`,
+            transform: 'translate(-50%, -50%)',
+          }}
+          animate={{
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        {/* Secondary spotlight - reacts inversely to mouse */}
+        <motion.div 
+          className="absolute w-[600px] h-[600px] bg-gradient-to-r from-[#00B14F]/10 to-[#00B14F]/15 rounded-full blur-2xl animate-pulse"
+          style={{
+            left: `${100 - mousePosition.x * 0.7}%`,
+            top: `${100 - mousePosition.y * 0.7}%`,
+            transform: 'translate(-50%, -50%)',
+          }}
+          animate={{
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        
+        {/* Bottom spotlight - subtle mouse influence */}
+        <motion.div 
+          className="absolute w-[500px] h-[500px] bg-gradient-to-r from-[#00B14F]/10 to-[#00B14F]/15 rounded-full blur-2xl animate-pulse"
+          style={{
+            left: `${75 + (mousePosition.x - 50) * 0.3}%`,
+            top: `${75 + (mousePosition.y - 50) * 0.3}%`,
+            transform: 'translate(-50%, -50%)',
+          }}
+          animate={{
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+        
+        {/* Mouse-following light orb */}
+        <motion.div
+          className="absolute w-64 h-64 bg-gradient-to-r from-[#00B14F]/20 via-emerald-400/15 to-teal-400/10 rounded-full blur-2xl"
+          style={{
+            left: `${mousePosition.x}%`,
+            top: `${mousePosition.y}%`,
+            transform: 'translate(-50%, -50%)',
+          }}
+          animate={{
+            scale: [0.8, 1.2, 0.8],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        {/* Moving light rays - react to mouse position */}
+        <motion.div 
+          className="absolute top-0 w-1 h-full bg-gradient-to-b from-[#00B14F]/20 via-transparent to-transparent blur-sm animate-pulse"
+          style={{
+            left: `${30 + (mousePosition.x * 0.2)}%`,
+          }}
+          animate={{
+            opacity: [0.5, 1, 0.5],
+            scaleX: [1, 1.5, 1]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        <motion.div 
+          className="absolute top-0 w-1 h-full bg-gradient-to-b from-[#00B14F]/15 via-transparent to-transparent blur-sm animate-pulse"
+          style={{
+            left: `${70 - (mousePosition.x * 0.15)}%`,
+          }}
+          animate={{
+            opacity: [0.3, 0.8, 0.3],
+            scaleX: [1, 2, 1]
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+
+        {/* Additional mouse-reactive light beams */}
+        <motion.div
+          className="absolute w-2 h-full bg-gradient-to-b from-emerald-400/15 via-[#00B14F]/10 to-transparent blur-lg"
+          style={{
+            left: `${mousePosition.x}%`,
+            top: 0,
+            transform: 'translateX(-50%)',
+          }}
+          animate={{
+            opacity: [0.2, 0.5, 0.2],
+            scaleX: [0.5, 1, 0.5]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5
+          }}
+        />
+
+        {/* Horizontal light beam */}
+        <motion.div
+          className="absolute w-full h-2 bg-gradient-to-r from-transparent via-[#00B14F]/10 to-transparent blur-lg"
+          style={{
+            top: `${mousePosition.y}%`,
+            left: 0,
+            transform: 'translateY(-50%)',
+          }}
+          animate={{
+            opacity: [0.1, 0.3, 0.1],
+            scaleY: [0.5, 1, 0.5]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.5
+          }}
+        />
+      </div>
+      
+      {/* Grid pattern overlay with mouse distortion */}
+      <motion.div 
+        className="fixed inset-0 bg-[linear-gradient(rgba(5,150,105,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(5,150,105,0.08)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none z-0"
+        style={{
+          transform: `translate(${(mousePosition.x - 50) * 0.01}px, ${(mousePosition.y - 50) * 0.01}px)`,
+          opacity: 0.7 + (mousePosition.x + mousePosition.y) * 0.001
+        }}
+      />
+    </>
+  );
+};
+
+export default ModernBackground;

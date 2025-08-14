@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, locales, type Locale } from '@/i18n';
 import { notFound } from 'next/navigation';
+import Header from '@/components/common/Header';
+import Footer from '@/components/common/Footer';
+import ModernBackground from '@/components/common/ModernBackground';
+import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
+import ModernCursor from '@/components/common/ModernCursor';
 import "../globals.css";
 
 interface LayoutProps {
@@ -32,11 +37,26 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   const messages = await getMessages(locale);
 
   return (
-    <html lang={locale}>
-      <body className="antialiased">
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      <body className="antialiased min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-emerald-900 relative overflow-x-hidden">
+        {/* Modern Background Component */}
+        <ModernBackground />
+        
+        {/* WhatsApp Floating Button - HIDDEN */}
+        {/* <WhatsAppFloatingButton /> */}
+        
+        {/* Modern Cursor Effect */}
+        <ModernCursor />
+        
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <NextIntlClientProvider messages={messages} locale={locale}>
+            <Header messages={messages} />
+            <main className="pt-16 md:pt-20 flex-1">
+              {children}
+            </main>
+            <Footer messages={messages} />
+          </NextIntlClientProvider>
+        </div>
       </body>
     </html>
   );

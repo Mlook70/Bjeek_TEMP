@@ -4,7 +4,7 @@ export const locales = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ja', 'ko', 'zh', 'a
 export type Locale = (typeof locales)[number];
 
 // This is the default locale used when no locale matches
-export const defaultLocale: Locale = 'en';
+export const defaultLocale: Locale = 'ar';
 
 // Helper function to get messages for a locale with error handling
 export async function getMessages(locale: string) {
