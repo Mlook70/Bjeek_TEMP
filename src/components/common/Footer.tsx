@@ -3,7 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Twitter, Instagram } from 'lucide-react';
+import { FaTiktok, FaSnapchatGhost } from 'react-icons/fa';
 import Image from 'next/image';
 
 interface FooterMessages {
@@ -48,10 +49,10 @@ const Footer = ({ messages }: FooterProps) => {
   const locale = useLocale();
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' }
+    { icon: Twitter, href: 'https://x.com/bjeeksa', label: 'X (Twitter)' },
+    { icon: Instagram, href: 'https://www.instagram.com/bjeeksa/', label: 'Instagram' },
+    { icon: FaTiktok, href: 'https://www.tiktok.com/@bjeeksa', label: 'TikTok' },
+    { icon: FaSnapchatGhost, href: 'https://www.snapchat.com/add/bjeeksa', label: 'Snapchat' }
   ];
 
   return (
@@ -84,6 +85,8 @@ const Footer = ({ messages }: FooterProps) => {
                 <motion.a
                   key={idx}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/60 hover:text-[#00b14f] hover:bg-[#00b14f]/10 transition-all duration-300"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
@@ -163,14 +166,17 @@ const Footer = ({ messages }: FooterProps) => {
             <p className="text-white/70 text-sm leading-relaxed">
               {messages.footer.social.description}
             </p>
-            <div className="flex space-x-3">
-              {socialLinks.slice(0, 2).map((social, idx) => (
+            <div className="grid grid-cols-2 gap-3">
+              {socialLinks.map((social, idx) => (
                 <motion.a
                   key={idx}
                   href={social.href}
-                  className="flex-1 h-12 bg-gradient-to-r from-[#00b14f]/20 to-[#00b14f]/10 rounded-lg flex items-center justify-center text-white/60 hover:text-white hover:from-[#00b14f]/40 hover:to-[#00b14f]/20 transition-all duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-12 bg-gradient-to-r from-[#00b14f]/20 to-[#00b14f]/10 rounded-lg flex items-center justify-center text-white/60 hover:text-white hover:from-[#00b14f]/40 hover:to-[#00b14f]/20 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
                 </motion.a>

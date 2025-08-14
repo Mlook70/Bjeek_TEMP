@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bjeek - بجيك
 
-## Getting Started
+## 🚀 Project Overview
 
-First, run the development server:
+**Bjeek** is a comprehensive Saudi delivery services platform that combines multiple delivery services into one unified application. Built with modern web technologies, this investment landing page showcases the first integrated delivery app in Saudi Arabia, targeting rides, food delivery, express packages, and logistics services.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🎯 Mission
+To revolutionize the delivery industry in Saudi Arabia by providing a single platform for all delivery needs - from transportation to food, packages, and mail services.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🌐 Multi-Service Platform
+- **Bjeek Ride**: Safe and reliable transportation services
+- **Bjeek Food**: Restaurant partnerships and food delivery
+- **Bjeek Express**: Comprehensive market and shopping delivery
+- **Bjeek Logistics**: Professional mail and package delivery
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 💰 Investment Opportunity
+- **Dynamic pricing tiers** based on investment amounts
+- **Real-time investment calculator** with discount visualization
+- **Stock price projections** with interactive charts
+- **Comprehensive investor dashboard**
 
-## Learn More
+### 🌍 Internationalization
+- **4 primary languages**: Arabic (default), English, Spanish, French
+- **6 additional languages**: German, Italian, Portuguese, Japanese, Korean, Chinese
+- **RTL support** for Arabic language
+- **Locale-based routing** with automatic detection
 
-To learn more about Next.js, take a look at the following resources:
+### 📊 Advanced Analytics
+- **Google Tag Manager integration**
+- **Investment tracking** with detailed metrics
+- **User interaction analytics**
+- **Conversion tracking** for investment forms
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Technology Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Core Framework
+- **Next.js 15.4.4** with App Router
+- **React 19.1.0** with TypeScript
+- **Tailwind CSS 4** for styling
 
-## Deploy on Vercel
+### Key Dependencies
+- **next-intl 4.3.4** - Internationalization
+- **framer-motion 12.23.12** - Animations
+- **recharts 3.1.2** - Data visualization
+- **lucide-react 0.539.0** - Icons
+- **react-icons 5.5.0** - Additional icons
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Development Tools
+- **TypeScript 5** - Type safety
+- **ESLint 9** - Code linting
+- **PostCSS** - CSS processing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📁 Project Structure
