@@ -123,7 +123,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
           className="text-center mb-20"
         >
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00b14f] to-white mb-4 leading-relaxed"
+            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00b14f] to-white mb-6 leading-relaxed"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2 }}
@@ -133,7 +133,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
           </motion.h2>
           
           <motion.p 
-            className="text-xl md:text-2xl lg:text-3xl text-white/90 max-w-4xl mx-auto leading-relaxed font-semibold"
+            className="text-2xl md:text-3xl lg:text-4xl text-white/90 max-w-4xl mx-auto leading-relaxed font-semibold"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -223,7 +223,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
                             className="flex items-center gap-3"
                           >
                             <div className={`w-2 h-2 rounded-full ${service.accent} shadow-lg flex-shrink-0`}></div>
-                            <span className="text-white/80 text-sm font-light">{feature}</span>
+                            <span className="text-white/80 text-lg md:text-xl lg:text-2xl font-light">{feature}</span>
                           </motion.div>
                         ))}
                       </motion.div>
@@ -232,7 +232,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
 
                   {/* More Button */}
                   <motion.button
-                    className="group/btn relative inline-flex items-center px-6 py-3 text-sm font-medium text-[#00b14f] hover:text-white transition-all duration-300 rounded-full border border-[#00b14f]/30 hover:border-[#00b14f] hover:bg-[#00b14f]/10"
+                    className="group/btn relative inline-flex items-center px-6 py-3 text-lg md:text-xl font-medium text-[#00b14f] hover:text-white transition-all duration-300 rounded-full border border-[#00b14f]/30 hover:border-[#00b14f] hover:bg-[#00b14f]/10"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={(e) => {
@@ -243,7 +243,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
                     <span className="relative z-10 flex items-center gap-2">
                       {selectedService === idx ? messages.buttons.close : messages.buttons.more}
                       <svg 
-                        className={`w-4 h-4 transition-transform duration-300 ${selectedService === idx ? 'rotate-180' : ''}`} 
+                        className={`w-5 h-5 transition-transform duration-300 ${selectedService === idx ? 'rotate-180' : ''}`} 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"

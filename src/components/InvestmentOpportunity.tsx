@@ -46,7 +46,7 @@ const InvestmentOpportunity = ({ messages }: InvestmentOpportunityProps) => {
           className="text-center mb-20"
         >
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00b14f] to-white mb-8 leading-relaxed py-4"
+            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00b14f] to-white mb-10 leading-relaxed py-4"
             style={{
               lineHeight: '1.3',
               paddingTop: '0.15em',
@@ -96,7 +96,7 @@ const InvestmentOpportunity = ({ messages }: InvestmentOpportunityProps) => {
 
                 {/* Text */}
                 <motion.p 
-                  className={`text-white text-lg leading-relaxed font-light ${locale === 'ar' ? 'text-right' : 'text-left'}`}
+                  className={`text-white text-lg md:text-xl lg:text-2xl leading-relaxed font-light ${locale === 'ar' ? 'text-right' : 'text-left'}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: idx * 0.1 + 0.4 }}

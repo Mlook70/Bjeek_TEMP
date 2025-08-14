@@ -57,7 +57,7 @@ const Hero = ({ messages }: HeroProps) => {
 
         {/* Main Title */}
         <motion.h1 
-          className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-wide mb-6 leading-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-wide mb-8 leading-tight"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.6 }}
@@ -67,7 +67,7 @@ const Hero = ({ messages }: HeroProps) => {
         
         {/* Subtitle 1 */}
         <motion.p
-          className="text-white/90 text-lg md:text-xl lg:text-2xl mb-4 max-w-4xl mx-auto leading-relaxed"
+          className="text-white/90 text-2xl md:text-3xl lg:text-4xl mb-6 max-w-4xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9 }}
@@ -77,7 +77,7 @@ const Hero = ({ messages }: HeroProps) => {
 
         {/* Subtitle 2 */}
         <motion.p
-          className="text-white/80 text-base md:text-lg lg:text-xl mb-8 max-w-3xl mx-auto leading-relaxed"
+          className="text-white/80 text-xl md:text-2xl lg:text-3xl mb-10 max-w-3xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}

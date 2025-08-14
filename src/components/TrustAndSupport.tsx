@@ -35,10 +35,10 @@ const TrustAndSupport = ({ messages }: TrustAndSupportProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-center mb-6"
+          className="text-center mb-10"
         >
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00b14f] to-white mb-8 leading-relaxed py-4"
+            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00b14f] to-white mb-10 leading-relaxed py-4"
             style={{
               lineHeight: '1.3',
               paddingTop: '0.15em',
@@ -55,7 +55,7 @@ const TrustAndSupport = ({ messages }: TrustAndSupportProps) => {
         </motion.div>
         
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           
           {/* About Us Image */}
           <motion.div
@@ -85,8 +85,8 @@ const TrustAndSupport = ({ messages }: TrustAndSupportProps) => {
             <div className="absolute bottom-12 left-8 w-2 h-2 bg-[#00b14f] rounded-full animate-pulse shadow-lg shadow-[#00b14f]/50" style={{ animationDelay: '1s' }}></div>
           </motion.div>
 
-          {/* Trust Elements */}
-          <div className="space-y-6">
+          {/* Trust Elements - 2 cards per row with equal heights */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
             {messages.trust.elements.map((element, idx) => (
               <motion.div
                 key={idx}
@@ -98,22 +98,22 @@ const TrustAndSupport = ({ messages }: TrustAndSupportProps) => {
                   ease: [0.25, 0.1, 0.25, 1]
                 }}
                 viewport={{ once: true }}
-                className="group relative cursor-pointer"
+                className="group relative cursor-pointer h-full"
                 onMouseEnter={() => setHoveredTrust(idx)}
                 onMouseLeave={() => setHoveredTrust(null)}
                 onClick={() => setActiveCard(activeCard === idx ? null : idx)}
               >
-                {/* Main Card */}
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-700 group-hover:border-[#00b14f]/50 group-hover:shadow-xl group-hover:shadow-[#00b14f]/10">
+                {/* Main Card - Full height */}
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-700 group-hover:border-[#00b14f]/50 group-hover:shadow-xl group-hover:shadow-[#00b14f]/10 h-full">
                   
                   {/* Dynamic Background Pattern */}
                   <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   
-                  {/* Content */}
-                  <div className="relative p-6 lg:p-8">
+                  {/* Content - Full height with flex layout */}
+                  <div className="relative p-6 lg:p-8 h-full flex flex-col">
                     {/* Title */}
                     <motion.h3 
-                      className="text-lg font-light text-white mb-3 tracking-wide flex items-center gap-3"
+                      className="text-xl md:text-2xl font-light text-white mb-4 tracking-wide flex items-center gap-3"
                       initial={{ opacity: 0, x: locale === 'ar' ? 20 : -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: idx * 0.1 + 0.3 }}
@@ -123,9 +123,9 @@ const TrustAndSupport = ({ messages }: TrustAndSupportProps) => {
                       {element.title}
                     </motion.h3>
 
-                    {/* Description */}
+                    {/* Description - Takes remaining space */}
                     <motion.p 
-                      className="text-white/80 text-sm leading-relaxed font-light"
+                      className="text-white/80 text-lg md:text-xl lg:text-2xl leading-relaxed font-light flex-grow"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: idx * 0.1 + 0.4 }}

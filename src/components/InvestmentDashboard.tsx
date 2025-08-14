@@ -43,10 +43,10 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00b14f] to-white mb-6 leading-relaxed">
           {messages.dashboard.title}
         </h2>
-        <p className="text-white/80 text-lg md:text-xl leading-relaxed">
+        <p className="text-white/80 text-2xl md:text-3xl lg:text-4xl leading-relaxed">
           {messages.dashboard.subtitle}
         </p>
       </motion.div>
