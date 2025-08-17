@@ -422,7 +422,7 @@ const Hero = ({ messages }: HeroProps) => {
           </defs>
         </svg>
       </div>
-
+      
       {/* Hero Content */}
       <motion.div 
         className="text-center relative z-20 px-6 max-w-6xl mx-auto"

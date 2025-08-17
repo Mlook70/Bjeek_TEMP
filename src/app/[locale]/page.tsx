@@ -5,6 +5,7 @@ import InvestmentOpportunity from '@/components/InvestmentOpportunity';
 import InvestmentDashboard from '@/components/InvestmentDashboard';
 import TrustAndSupport from '@/components/TrustAndSupport';
 import type { Metadata } from 'next';
+import ShaderHero from '@/components/ShaderHero';
 
 interface HomePageProps {
   params: Promise<{
@@ -31,7 +32,7 @@ export default async function Home({ params }: HomePageProps) {
   
   return (
     <>
-      <Hero messages={messages} />
+      <ShaderHero messages={messages} />
       <TrustAndSupport messages={messages} />
       <OurServices messages={messages} />
       <InvestmentDashboard messages={messages} />
