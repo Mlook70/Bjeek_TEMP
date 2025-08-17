@@ -1,9 +1,16 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import dynamic from 'next/dynamic';
 
+// Dynamically import Recharts components with no SSR
+const LineChart = dynamic(() => import('recharts').then(mod => ({ default: mod.LineChart })), { ssr: false });
+const Line = dynamic(() => import('recharts').then(mod => ({ default: mod.Line })), { ssr: false });
+const XAxis = dynamic(() => import('recharts').then(mod => ({ default: mod.XAxis })), { ssr: false });
+const YAxis = dynamic(() => import('recharts').then(mod => ({ default: mod.YAxis })), { ssr: false });
+const CartesianGrid = dynamic(() => import('recharts').then(mod => ({ default: mod.CartesianGrid })), { ssr: false });
+const Tooltip = dynamic(() => import('recharts').then(mod => ({ default: mod.Tooltip })), { ssr: false });
+const ResponsiveContainer = dynamic(() => import('recharts').then(mod => ({ default: mod.ResponsiveContainer })), { ssr: false });
 
 interface InvestmentMessages {
   dashboard: {
@@ -36,32 +43,18 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
   return (
     <section className="py-20 px-6 relative">
       {/* Section Header */}
-      <motion.div
-        className="text-center mb-16 max-w-4xl mx-auto"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <div className="text-center mb-16 max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#41fc95] to-white mb-6 leading-relaxed">
           {messages.dashboard.title}
         </h2>
         <p className="text-white/80 text-2xl md:text-3xl lg:text-4xl leading-relaxed">
           {messages.dashboard.subtitle}
         </p>
-      </motion.div>
-
-
+      </div>
 
       {/* Stock Price Chart */}
-      <motion.div
-        className="max-w-7xl mx-auto"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        viewport={{ once: true }}
-      >
-        <div className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-700 group-hover:border-[#00b14f]/50 rounded-3xl p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-300 hover:border-[#00b14f]/50 hover:shadow-lg hover:shadow-[#00b14f]/10 rounded-3xl p-8">
           <div className="mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
               {messages.dashboard.chartTitle}
@@ -71,7 +64,7 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
             </p>
           </div>
           
-          <div className="h-96">
+          <div className="h-96 flex items-center justify-center">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={stockData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
@@ -94,8 +87,8 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
                     borderRadius: '12px',
                     color: 'white'
                   }}
-                  formatter={(value: number, name: string) => [`${value} ريال`, messages.dashboard.tooltipPrice]}
-                  labelFormatter={(label: string) => `${messages.dashboard.tooltipYear}: ${label}`}
+                  formatter={(value, name) => [`${value} SAR`, messages.dashboard.tooltipPrice]}
+                  labelFormatter={(label) => `${messages.dashboard.tooltipYear}: ${label}`}
                 />
                 <Line 
                   type="monotone" 
@@ -117,7 +110,7 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

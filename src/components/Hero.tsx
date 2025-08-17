@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 interface HeroMessages {
@@ -424,18 +423,12 @@ const Hero = ({ messages }: HeroProps) => {
       </div>
       
       {/* Hero Content */}
-      <motion.div 
+      <div 
         className="text-center relative z-20 px-6 max-w-6xl mx-auto"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
       >
         {/* Logo */}
-        <motion.div 
+        <div 
           className="flex justify-center mb-8"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
         >
           <Image
             src="/Logo.png"
@@ -445,54 +438,38 @@ const Hero = ({ messages }: HeroProps) => {
             className="object-contain w-48 md:w-64 lg:w-80 h-auto"
             priority
           />
-        </motion.div>
+        </div>
 
         {/* Main Title */}
-        <motion.h1 
+        <h1 
           className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-wide mb-6 leading-tight"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.6 }}
         >
           {messages.hero.heroTitle}
-        </motion.h1>
+        </h1>
         
         {/* Subtitle 1 */}
-        <motion.p
+        <p
           className="text-white/90 text-lg md:text-xl lg:text-2xl mb-4 max-w-4xl mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.9 }}
         >
           {messages.hero.heroSubtitle1}
-        </motion.p>
-
-
+        </p>
         
         {/* Brand Line */}
-        <motion.div 
+        <div 
           className="w-24 h-2 bg-[#00B14F] mx-auto rounded-full mb-8"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
         />
 
         {/* CTA Buttons - HIDDEN */}
-        {/* <motion.div
+        {/* <div
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.8 }}
         >
-          <motion.button
+          <button
             className="bg-[#00B14F] hover:bg-[#00B14F]/90 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 min-w-[200px]"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             {messages.hero.getStarted}
-          </motion.button>
-        </motion.div> */}
-      </motion.div>
+          </button>
+        </div> */}
+      </div>
     </section>
   );
 };

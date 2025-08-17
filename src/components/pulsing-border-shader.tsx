@@ -14,8 +14,8 @@ export default function PulsingBorderShader(props: React.ComponentProps<typeof P
       rotation={0}
       {...props}
       style={{
-        width: "100%",
-        height: "100%",
+        width: "535px",
+        height: "511px",
         borderRadius: "0px",
         backgroundImage:
           "radial-gradient(circle in oklab, oklab(0% 0 -.0001 / 0%) 25.22%, oklab(50% -0.25 0.15) 43.89%, oklab(0% 0 -.0001 / 0%) 60.04%)",
