@@ -4,7 +4,7 @@ import { getMessages, locales, type Locale } from '@/i18n';
 import { notFound } from 'next/navigation';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
-import ModernBackground from '@/components/common/ModernBackground';
+
 import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
 import ModernCursor from '@/components/common/ModernCursor';
 import "../globals.css";
@@ -38,10 +38,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <body className="antialiased min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-emerald-900 relative overflow-x-hidden">
-        {/* Modern Background Component */}
-        <ModernBackground />
-        
+      <body className="antialiased min-h-screen relative overflow-x-hidden">
         {/* WhatsApp Floating Button - HIDDEN */}
         {/* <WhatsAppFloatingButton /> */}
         

@@ -61,7 +61,7 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
         transition={{ duration: 0.8, delay: 0.3 }}
         viewport={{ once: true }}
       >
-        <div className="bg-gradient-to-br from-gray-900/50 to-black/30 backdrop-blur-lg border border-white/10 rounded-3xl p-8">
+        <div className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-700 group-hover:border-[#00b14f]/50 rounded-3xl p-8">
           <div className="mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
               {messages.dashboard.chartTitle}

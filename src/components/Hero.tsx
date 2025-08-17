@@ -3,14 +3,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import HeroModernBackground from './common/HeroModernBackground';
 
 interface HeroMessages {
   soon: string;
   hero: {
     heroTitle: string;
     heroSubtitle1: string;
-    heroSubtitle2: string;
     getStarted: string;
     seeHowItWorks: string;
   };
@@ -25,12 +23,406 @@ const Hero = ({ messages }: HeroProps) => {
     <section 
       className="min-h-screen flex items-center justify-center relative"
     >
-      {/* Modern Animated Background */}
-      <HeroModernBackground />
-      
-      {/* Background Overlay - Lighter for better pattern visibility */}
-      <div className="absolute inset-0 bg-black/20 z-10"></div>
-      
+      {/* SVG Background with Grid Patterns and Lights */}
+      <div className="absolute inset-0 z-0">
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 1220 810"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <g clipPath="url(#clip0_186_1134)">
+            <mask
+              id="mask0_186_1134"
+              style={{ maskType: "alpha" }}
+              maskUnits="userSpaceOnUse"
+              x="10"
+              y="-1"
+              width="1200"
+              height="812"
+            >
+              <rect x="10" y="-0.84668" width="1200" height="811.693" fill="rgba(255, 255, 255, 0.1)" />
+            </mask>
+            <g mask="url(#mask0_186_1134)">
+              {/* Grid Rectangles */}
+              {[...Array(35)].map((_, i) => (
+                <React.Fragment key={`row1-${i}`}>
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="9.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="45.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="81.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="117.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="153.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="189.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="225.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="261.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="297.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="333.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="369.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="405.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="441.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="477.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="513.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="549.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="585.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="621.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="657.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="693.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="729.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                  <rect
+                    x={-20.0891 + i * 36}
+                    y="765.2"
+                    width="35.6"
+                    height="35.6"
+                    stroke="rgba(255, 255, 255, 0.11)"
+                    strokeWidth="0.4"
+                    strokeDasharray="2 2"
+                  />
+                </React.Fragment>
+              ))}
+              {/* Specific Rectangles with fill */}
+              <rect x="699.711" y="81" width="36" height="36" fill="rgba(255, 255, 255, 0.08)" />
+              <rect x="195.711" y="153" width="36" height="36" fill="rgba(255, 255, 255, 0.09)" />
+              <rect x="1023.71" y="153" width="36" height="36" fill="rgba(255, 255, 255, 0.09)" />
+              <rect x="123.711" y="225" width="36" height="36" fill="rgba(255, 255, 255, 0.09)" />
+              <rect x="1095.71" y="225" width="36" height="36" fill="rgba(255, 255, 255, 0.09)" />
+              <rect x="951.711" y="297" width="36" height="36" fill="rgba(255, 255, 255, 0.09)" />
+              <rect x="231.711" y="333" width="36" height="36" fill="rgba(255, 255, 255, 0.07)" />
+              <rect x="303.711" y="405" width="36" height="36" fill="rgba(255, 255, 255, 0.07)" />
+              <rect x="87.7109" y="405" width="36" height="36" fill="rgba(255, 255, 255, 0.09)" />
+              <rect x="519.711" y="405" width="36" height="36" fill="rgba(255, 255, 255, 0.08)" />
+              <rect x="771.711" y="405" width="36" height="36" fill="rgba(255, 255, 255, 0.09)" />
+              <rect x="591.711" y="477" width="36" height="36" fill="rgba(255, 255, 255, 0.07)" />
+            </g>
+
+            <g filter="url(#filter0_f_186_1134)">
+              <path
+                d="M1447.45 -87.0203V-149.03H1770V1248.85H466.158V894.269C1008.11 894.269 1447.45 454.931 1447.45 -87.0203Z"
+                fill="url(#paint1_linear_186_1134)"
+              />
+            </g>
+
+            <g filter="url(#filter1_f_186_1134)">
+              <path
+                d="M1383.45 -151.02V-213.03H1706V1184.85H402.158V830.269C944.109 830.269 1383.45 390.931 1383.45 -151.02Z"
+                fill="url(#paint2_linear_186_1134)"
+                fillOpacity="0.69"
+              />
+            </g>
+
+            <g style={{ mixBlendMode: "lighten" }} filter="url(#filter2_f_186_1134)">
+              <path
+                d="M1567.45 -231.02V-293.03H1890V1104.85H586.158V750.269C1128.11 750.269 1567.45 310.931 1567.45 -231.02Z"
+                fill="url(#paint3_linear_186_1134)"
+              />
+            </g>
+
+            <g style={{ mixBlendMode: "overlay" }} filter="url(#filter3_f_186_1134)">
+              <path
+                d="M65.625 750.269H284.007C860.205 750.269 1327.31 283.168 1327.31 -293.03H1650V1104.85H65.625V750.269Z"
+                fill="url(#paint4_radial_186_1134)"
+                fillOpacity="0.64"
+              />
+            </g>
+          </g>
+
+          <rect
+            x="0.5"
+            y="0.5"
+            width="1219"
+            height="809"
+            rx="15.5"
+            stroke="rgba(255, 255, 255, 0.06)"
+          />
+
+          <defs>
+            <filter
+              id="filter0_f_186_1134"
+              x="147.369"
+              y="-467.818"
+              width="1941.42"
+              height="2035.46"
+              filterUnits="userSpaceOnUse"
+              colorInterpolationFilters="sRGB"
+            >
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="159.394" result="effect1_foregroundBlur_186_1134" />
+            </filter>
+            <filter
+              id="filter1_f_186_1134"
+              x="-554.207"
+              y="-1169.39"
+              width="3216.57"
+              height="3310.61"
+              filterUnits="userSpaceOnUse"
+              colorInterpolationFilters="sRGB"
+            >
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="478.182" result="effect1_foregroundBlur_186_1134" />
+            </filter>
+            <filter
+              id="filter2_f_186_1134"
+              x="426.762"
+              y="-452.424"
+              width="1622.63"
+              height="1716.67"
+              filterUnits="userSpaceOnUse"
+              colorInterpolationFilters="sRGB"
+            >
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="79.6969" result="effect1_foregroundBlur_186_1134" />
+            </filter>
+            <filter
+              id="filter3_f_186_1134"
+              x="-253.163"
+              y="-611.818"
+              width="2221.95"
+              height="2035.46"
+              filterUnits="userSpaceOnUse"
+              colorInterpolationFilters="sRGB"
+            >
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="159.394" result="effect1_foregroundBlur_186_1134" />
+            </filter>
+            <linearGradient
+              id="paint0_linear_186_1134"
+              x1="35.0676"
+              y1="23.6807"
+              x2="903.8"
+              y2="632.086"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="rgba(255, 255, 255, 0)" />
+              <stop offset="1" stopColor="rgba(255, 255, 255, 0.3)" />
+            </linearGradient>
+            <linearGradient
+              id="paint1_linear_186_1134"
+              x1="1118.08"
+              y1="-149.03"
+              x2="1118.08"
+              y2="1248.85"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="rgba(255, 255, 255, 0.8)" />
+              <stop offset="0.578125" stopColor="rgba(0, 177, 79, 0.6)" />
+              <stop offset="1" stopColor="rgba(0, 177, 79, 0.8)" />
+            </linearGradient>
+            <linearGradient
+              id="paint2_linear_186_1134"
+              x1="1054.08"
+              y1="-213.03"
+              x2="1054.08"
+              y2="1184.85"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="rgba(255, 255, 255, 0.8)" />
+              <stop offset="0.578125" stopColor="rgba(0, 177, 79, 0.6)" />
+              <stop offset="1" stopColor="rgba(0, 177, 79, 0.8)" />
+            </linearGradient>
+            <linearGradient
+              id="paint3_linear_186_1134"
+              x1="1238.08"
+              y1="-293.03"
+              x2="1238.08"
+              y2="1104.85"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="rgba(255, 255, 255, 0.8)" />
+              <stop offset="0.578125" stopColor="rgba(0, 177, 79, 0.6)" />
+              <stop offset="1" stopColor="rgba(0, 177, 79, 0.8)" />
+            </linearGradient>
+            <radialGradient
+              id="paint4_radial_186_1134"
+              cx="0"
+              cy="0"
+              r="1"
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="translate(989.13 557.24) rotate(47.9516) scale(466.313 471.424)"
+            >
+              <stop stopColor="rgba(255, 255, 255, 0.8)" />
+              <stop offset="0.157789" stopColor="rgba(0, 177, 79, 0.6)" />
+              <stop offset="1" stopColor="rgba(0, 177, 79, 0.8)" />
+            </radialGradient>
+            <clipPath id="clip0_186_1134">
+              <rect width="1220" height="810" rx="16" fill="rgba(255, 255, 255, 0.1)" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+
       {/* Hero Content */}
       <motion.div 
         className="text-center relative z-20 px-6 max-w-6xl mx-auto"
@@ -75,15 +467,7 @@ const Hero = ({ messages }: HeroProps) => {
           {messages.hero.heroSubtitle1}
         </motion.p>
 
-        {/* Subtitle 2 */}
-        <motion.p
-          className="text-white/80 text-base md:text-lg lg:text-xl mb-8 max-w-3xl mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-        >
-          {messages.hero.heroSubtitle2}
-        </motion.p>
+
         
         {/* Brand Line */}
         <motion.div 
