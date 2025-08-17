@@ -5,8 +5,8 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 
-import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
-import ModernCursor from '@/components/common/ModernCursor';
+// import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
+
 import "../globals.css";
 
 interface LayoutProps {
@@ -41,10 +41,6 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       <body className="antialiased min-h-screen relative overflow-x-hidden">
         {/* WhatsApp Floating Button - HIDDEN */}
         {/* <WhatsAppFloatingButton /> */}
-        
-        {/* Modern Cursor Effect */}
-        <ModernCursor />
-        
         <div className="relative z-10 flex flex-col min-h-screen">
           <NextIntlClientProvider messages={messages} locale={locale}>
             <Header messages={messages} />
