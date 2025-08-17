@@ -32,6 +32,7 @@ const InvestmentOpportunity = ({ messages }: InvestmentOpportunityProps) => {
 
   return (
     <section className="py-16 relative overflow-hidden">
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
@@ -107,6 +108,7 @@ const InvestmentOpportunity = ({ messages }: InvestmentOpportunityProps) => {
         <div className="absolute top-1/4 left-8 w-1 h-32 bg-gradient-to-b from-[#00b14f] to-transparent opacity-20"></div>
         <div className="absolute bottom-1/4 right-8 w-1 h-32 bg-gradient-to-t from-[#00b14f] to-transparent opacity-20"></div>
       </div>
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 lg:h-32 bg-gradient-to-t from-green-500 to-transparent" />
     </section>
   );
 };

@@ -276,7 +276,9 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
             </motion.div>
           ))}
         </div>
+      
       </div>
+      <div className="absolute bottom-[-100px] left-0 right-0 h-56 sm:h-36 lg:h-48 bg-gradient-to-t from-green-500 to-transparent" />
     </section>
   );
 };

@@ -20,7 +20,7 @@ interface ShaderHeroProps {
 
 export default function ShaderHero({ messages }: ShaderHeroProps) {
   return (
-    <div className="min-h-screen bg-gray-600 text-white overflow-hidden relative">
+    <div className="min-h-screen bg-green-300 text-white overflow-hidden relative">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-black to-emerald-900/20" />
 
@@ -32,7 +32,7 @@ export default function ShaderHero({ messages }: ShaderHeroProps) {
             <div className="space-y-4 sm:space-y-6">
               {/* Main Title */}
               <motion.h1 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight text-center lg:text-left leading-[1.1] sm:leading-[1.2]"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-center lg:text-left leading-[1.1] sm:leading-[1.2]"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, delay: 0.6 }}
@@ -90,7 +90,7 @@ export default function ShaderHero({ messages }: ShaderHeroProps) {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 lg:h-32 bg-gradient-to-t from-gray-600 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 lg:h-32 bg-gradient-to-t from-green-300 to-transparent" />
     </div>
   )
 }
