@@ -1,5 +1,5 @@
 import { getMessages } from '@/i18n';
-import Hero from '@/components/Hero';
+// import Hero from '@/components/Hero';
 import OurServices from '@/components/OurServices';
 import InvestmentOpportunity from '@/components/InvestmentOpportunity';
 import InvestmentDashboard from '@/components/InvestmentDashboard';
