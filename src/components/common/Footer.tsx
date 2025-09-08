@@ -141,7 +141,7 @@ const Footer = ({ messages }: FooterProps) => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[#00b14f]" />
-                <span className="text-white/70 text-sm">{messages.footer.contact.phone}</span>
+                <span className="text-white/70 text-sm" dir="ltr">{messages.footer.contact.phone}</span>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-[#00b14f] mt-0.5" />
