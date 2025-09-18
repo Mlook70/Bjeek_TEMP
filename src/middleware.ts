@@ -1,7 +1,7 @@
 import createMiddleware from 'next-intl/middleware';
 
 // Can be imported from a shared config
-const locales = ['en', 'es', 'ar', 'fr'];
+const locales = ['en', 'ar'];
 
 export default createMiddleware({
   // A list of all locales that are supported
