@@ -11,7 +11,7 @@ interface MessagesType {
     home: string;
     investment: string;
     joinNow: string;
-    linktree: string;
+    Links: string;
   };
 }
 
@@ -27,7 +27,7 @@ const Header = ({ messages }: HeaderProps) => {
 
   const navigationItems: Array<{ name: string; href: string; isButton?: boolean }> = [
     { name: messages.navigation.home, href: `/${locale}` },
-    { name: messages.navigation.linktree, href: `/${locale}/linktree` },
+    { name: messages.navigation.Links, href: `/${locale}/links` },
     // { name: messages.navigation.investment, href: `/${locale}/investment-form` }, // HIDDEN
     // { name: messages.navigation.joinNow, href: '#join', isButton: true } // HIDDEN
   ];

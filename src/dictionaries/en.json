@@ -10,9 +10,9 @@
     "home": "Home",
     "investment": "Investment Opportunity",
     "joinNow": "Join Now",
-    "linktree": "Links"
+    "Links": "Links"
   },
-  "linktree": {
+  "Links": {
     "title": "Connect with Bjeek",
     "subtitle": "Find all our important links, social media, and resources in one place",
     "links": {

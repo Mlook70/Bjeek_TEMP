@@ -1,11 +1,11 @@
 import { getMessages } from '@/i18n';
 // import Hero from '@/components/Hero';
-import OurServices from '@/components/OurServices';
-import InvestmentOpportunity from '@/components/InvestmentOpportunity';
-import InvestmentDashboard from '@/components/InvestmentDashboard';
-import TrustAndSupport from '@/components/TrustAndSupport';
+import OurServices from '@/components/Home/OurServices';
+import InvestmentOpportunity from '@/components/Home/InvestmentOpportunity';
+import InvestmentDashboard from '@/components/Home/InvestmentDashboard';
+import TrustAndSupport from '@/components/Home/TrustAndSupport';
 import type { Metadata } from 'next';
-import ShaderHero from '@/components/ShaderHero';
+import ShaderHero from '@/components/Home/ShaderHero';
 
 interface HomePageProps {
   params: Promise<{

@@ -1,6 +1,6 @@
 import { getMessages } from '@/i18n';
 import type { Metadata } from 'next';
-import LinkTree from '@/components/LinkTree';
+import LinkTree from '@/components/Links/Links';
 
 interface LinkTreePageProps {
   params: Promise<{

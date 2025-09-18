@@ -14,8 +14,8 @@ const XIcon: React.FC = () => (
   </svg>
 );
 
-interface LinkTreeMessages {
-  linktree: {
+interface LinksMessages {
+  Links: {
     title: string;
     subtitle: string;
     links: {
@@ -55,8 +55,8 @@ interface LinkTreeMessages {
   };
 }
 
-interface LinkTreeProps {
-  messages: LinkTreeMessages;
+interface LinksProps {
+  messages: LinksMessages;
 }
 
 interface LinkButtonProps {
@@ -104,12 +104,12 @@ const LinkButton = ({
   );
 };
 
-export default function LinkTree({ messages }: LinkTreeProps) {
+export default function Links({ messages }: LinksProps) {
   const links = [
     {
       id: 'website',
-      title: messages.linktree.links.website.title,
-      subtitle: messages.linktree.links.website.subtitle,
+      title: messages.Links.links.website.title,
+      subtitle: messages.Links.links.website.subtitle,
       icon: <FaGlobe />,
       href: '/',
       color: 'from-green-950 to-green-900',
@@ -117,8 +117,8 @@ export default function LinkTree({ messages }: LinkTreeProps) {
     },
     {
       id: 'document2',
-      title: messages.linktree.links.document2.title,
-      subtitle: messages.linktree.links.document2.subtitle,
+      title: messages.Links.links.document2.title,
+      subtitle: messages.Links.links.document2.subtitle,
       icon: <FaFileAlt />,
       href: 'https://drive.google.com/file/d/1XFTTO_BwqEWdK-Yqrw8u93p30y0mDxi4/view?usp=sharing',
       color: 'from-green-900 to-green-950',
@@ -127,8 +127,8 @@ export default function LinkTree({ messages }: LinkTreeProps) {
     },
     {
       id: 'document4',
-      title: messages.linktree.links.document4.title,
-      subtitle: messages.linktree.links.document4.subtitle,
+      title: messages.Links.links.document4.title,
+      subtitle: messages.Links.links.document4.subtitle,
       icon: <FaFileAlt />,
       href: 'https://drive.google.com/file/d/1Y3iT0gkGrv3Vd9odDHeB7TsiBqxj2I_E/view?usp=sharing',
       color: 'from-green-900 to-green-950',
@@ -137,8 +137,8 @@ export default function LinkTree({ messages }: LinkTreeProps) {
     },
     {
       id: 'email',
-      title: messages.linktree.links.email.title,
-      subtitle: messages.linktree.links.email.subtitle,
+      title: messages.Links.links.email.title,
+      subtitle: messages.Links.links.email.subtitle,
       icon: <FaEnvelope />,
       href: 'mailto:info@bjeek.sa',
       color: 'from-green-950 to-green-900',
@@ -147,8 +147,8 @@ export default function LinkTree({ messages }: LinkTreeProps) {
     },
     {
       id: 'twitter',
-      title: messages.linktree.links.twitter.title,
-      subtitle: messages.linktree.links.twitter.subtitle,
+      title: messages.Links.links.twitter.title,
+      subtitle: messages.Links.links.twitter.subtitle,
       icon: <XIcon />,
       href: 'https://x.com/bjeeksa',
       color: 'from-green-900 to-green-800',
@@ -157,8 +157,8 @@ export default function LinkTree({ messages }: LinkTreeProps) {
     },
     {
       id: 'instagram',
-      title: messages.linktree.links.instagram.title,
-      subtitle: messages.linktree.links.instagram.subtitle,
+      title: messages.Links.links.instagram.title,
+      subtitle: messages.Links.links.instagram.subtitle,
       icon: <Instagram />,
       href: 'https://www.instagram.com/bjeeksa/',
       color: 'from-green-800 to-green-700',
@@ -167,8 +167,8 @@ export default function LinkTree({ messages }: LinkTreeProps) {
     },
     {
       id: 'snapchat',
-      title: messages.linktree.links.snapchat.title,
-      subtitle: messages.linktree.links.snapchat.subtitle,
+      title: messages.Links.links.snapchat.title,
+      subtitle: messages.Links.links.snapchat.subtitle,
       icon: <FaSnapchatGhost />,
       href: 'https://www.snapchat.com/add/bjeeksa',
       color: 'from-green-700 to-green-700',
@@ -177,8 +177,8 @@ export default function LinkTree({ messages }: LinkTreeProps) {
     },
     {
       id: 'tiktok',
-      title: messages.linktree.links.tiktok.title,
-      subtitle: messages.linktree.links.tiktok.subtitle,
+      title: messages.Links.links.tiktok.title,
+      subtitle: messages.Links.links.tiktok.subtitle,
       icon: <FaTiktok />,
       href: 'https://www.tiktok.com/@bjeeksa',
       color: 'from-green-700 to-green-800',
@@ -233,7 +233,7 @@ export default function LinkTree({ messages }: LinkTreeProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              {messages.linktree.subtitle}
+              {messages.Links.subtitle}
             </motion.p>
 
             {/* Decorative line */}
