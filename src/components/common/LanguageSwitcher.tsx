@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 
 const locales = [
   { code: 'en', name: 'English' },
-  { code: 'es', name: 'Español' },
+  // { code: 'es', name: 'Español' },
   { code: 'ar', name: 'العربية' },
-  { code: 'fr', name: 'Français' },
+  // { code: 'fr', name: 'Français' },
 ];
 
   interface LanguageSwitcherProps {

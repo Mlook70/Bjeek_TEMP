@@ -72,8 +72,8 @@ const Footer = ({ messages }: FooterProps) => {
               <Image
                 src="/Logo.png"
                 alt="Bjeek Logo"
-                width={120}
-                height={80}
+                width={200}
+                height={200}
                 className="object-contain"
               />
             </div>

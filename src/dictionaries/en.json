@@ -9,7 +9,46 @@
   "navigation": {
     "home": "Home",
     "investment": "Investment Opportunity",
-    "joinNow": "Join Now"
+    "joinNow": "Join Now",
+    "linktree": "Links"
+  },
+  "linktree": {
+    "title": "Connect with Bjeek",
+    "subtitle": "Find all our important links, social media, and resources in one place",
+    "links": {
+      "website": {
+        "title": "Homepage",
+        "subtitle": "Official website homepage"
+      },
+      "document2": {
+        "title": "Investment Opportunity Summary",
+        "subtitle": "Download PDF"
+      },
+      "document4": {
+        "title": "Share Purchase Packages",
+        "subtitle": "Download PDF"
+      },
+      "email": {
+        "title": "Email Us",
+        "subtitle": "info@bjeek.sa"
+      },
+      "twitter": {
+        "title": "X",
+        "subtitle": "@bjeeksa"
+      },
+      "instagram": {
+        "title": "Instagram",
+        "subtitle": "@bjeeksa"
+      },
+      "snapchat": {
+        "title": "Snapchat",
+        "subtitle": "@bjeeksa"
+      },
+      "tiktok": {
+        "title": "TikTok",
+        "subtitle": "@bjeeksa"
+      }
+    }
   },
   "services": {
     "servicesTitle": "How many apps do you need to deliver an order?",
