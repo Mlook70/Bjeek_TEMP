@@ -4,6 +4,7 @@ import { getMessages, locales, type Locale } from '@/i18n';
 import { notFound } from 'next/navigation';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
+import { GoogleTagManager } from '@next/third-parties/google'
 
 // import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
 
@@ -38,6 +39,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+          <GoogleTagManager gtmId="GTM-5HT84N5V" />
+
       <body className="antialiased min-h-screen relative overflow-x-hidden">
         {/* WhatsApp Floating Button - HIDDEN */}
         {/* <WhatsAppFloatingButton /> */}
