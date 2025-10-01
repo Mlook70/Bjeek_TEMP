@@ -1,8 +1,8 @@
-import { getMessages } from '@/i18n';
 import type { Metadata } from 'next';
-import LinkTree from '@/components/Links/Links';
+import Links from '@/components/Links/Links';
+import { getMessages } from '@/i18n';
 
-interface LinkTreePageProps {
+interface LinksPageProps {
   params: Promise<{
     locale: string;
   }>;
@@ -14,20 +14,36 @@ export async function generateMetadata({
   params: Promise<{ locale: string }> 
 }): Promise<Metadata> {
   const { locale } = await params;
+  const isArabic = locale === 'ar';
+  const baseUrl = 'https://bjeek.com';
   
   return {
-    title: "Bjeek Links - Connect with Us",
-    description: "Find all our important links, social media, and resources in one place.",
+    title: isArabic 
+      ? "روابط بجيك - تواصل معنا على وسائل التواصل الاجتماعي" 
+      : "Bjeek Links - Connect with Us on Social Media",
+    description: isArabic
+      ? "اعثر على جميع روابطنا المهمة ووسائل التواصل الاجتماعي والموارد في مكان واحد. تواصل مع بجيك على تويتر، إنستغرام، سناب شات، وتيك توك."
+      : "Find all our important links, social media, and resources in one place. Connect with Bjeek on Twitter, Instagram, Snapchat, and TikTok.",
+    keywords: isArabic
+      ? "روابط بجيك, وسائل التواصل الاجتماعي, تويتر بجيك, إنستغرام بجيك, سناب شات بجيك, تيك توك بجيك, تواصل بجيك"
+      : "Bjeek links, social media, Bjeek Twitter, Bjeek Instagram, Bjeek Snapchat, Bjeek TikTok, contact Bjeek",
+    openGraph: {
+      title: isArabic 
+        ? "روابط بجيك - تواصل معنا على وسائل التواصل الاجتماعي" 
+        : "Bjeek Links - Connect with Us on Social Media",
+      description: isArabic
+        ? "اعثر على جميع روابطنا المهمة ووسائل التواصل الاجتماعي والموارد في مكان واحد."
+        : "Find all our important links, social media, and resources in one place.",
+    },
+    alternates: {
+      canonical: `${baseUrl}/${locale}/links`,
+    },
   };
 }
 
-export default async function LinkTreePage({ params }: LinkTreePageProps) {
+export default async function LinksPage({ params }: LinksPageProps) {
   const { locale } = await params;
   const messages = await getMessages(locale);
   
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-[#212121] via-[#171717] to-[#0a0a0a]">
-      <LinkTree messages={messages} />
-    </div>
-  );
+  return <Links messages={messages} />;
 }

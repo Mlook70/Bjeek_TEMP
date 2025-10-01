@@ -5,12 +5,9 @@ import PulsingBorderShader from "./pulsing-border-shader"
 import { motion } from 'framer-motion';
 
 interface HeroMessages {
-  soon: string;
   hero: {
     heroTitle: string;
     heroSubtitle1: string;
-    getStarted: string;
-    seeHowItWorks: string;
   };
 }
 
