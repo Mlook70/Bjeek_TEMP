@@ -1,3 +1,12 @@
 {
-  "soon": "PRESTO"
+  "soon": "PRESTO",
+  "navigation": {
+    "home": "Casa",
+    "investment": "Opportunità di Investimento",
+    "joinNow": "Unisciti Ora",
+    "Links": "Collegamenti"
+  },
+  "cta": {
+    "joinUs": "Unisciti a Noi"
+  }
 } 

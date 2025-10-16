@@ -1,3 +1,12 @@
 {
-  "soon": "BALD"
+  "soon": "BALD",
+  "navigation": {
+    "home": "Startseite",
+    "investment": "Investitionsmöglichkeit",
+    "joinNow": "Jetzt Beitreten",
+    "Links": "Links"
+  },
+  "cta": {
+    "joinUs": "Treten Sie uns bei"
+  }
 } 

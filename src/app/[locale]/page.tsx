@@ -1,5 +1,4 @@
 import { getMessages } from '@/i18n';
-// import Hero from '@/components/Hero';
 import OurServices from '@/components/Home/OurServices';
 import InvestmentOpportunity from '@/components/Home/InvestmentOpportunity';
 import InvestmentDashboard from '@/components/Home/InvestmentDashboard';
@@ -20,7 +19,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const isArabic = locale === 'ar';
-  const baseUrl = 'https://bjeek.com';
   
   return {
     title: isArabic 
@@ -32,7 +30,24 @@ export async function generateMetadata({
     keywords: isArabic
       ? "توصيل طعام السعودية, توصيل رحلات, توصيل طلبات, توصيل بريد, تطبيق توصيل سعودي, استثمار تقني, بجيك, منصة توصيل, تطبيق سعودي, رؤية 2030, استثمار ريال سعودي"
       : "Saudi food delivery, ride sharing Saudi Arabia, package delivery, mail delivery, Saudi delivery app, tech investment, Bjeek, delivery platform, Saudi app, Vision 2030, SAR investment",
+    authors: [{ name: "Bjeek Team" }],
+    creator: "Bjeek",
+    publisher: "Bjeek",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     openGraph: {
+      type: "website",
+      locale: isArabic ? "ar_SA" : "en_US",
+      siteName: isArabic ? "بجيك" : "Bjeek",
       title: isArabic 
         ? "بجيك - أول تطبيق شامل لخدمات التوصيل السعودية" 
         : "Bjeek - Saudi Arabia's First Comprehensive Delivery Services App",
@@ -49,15 +64,13 @@ export async function generateMetadata({
       ],
     },
     twitter: {
+      card: "summary_large_image",
       title: isArabic 
         ? "بجيك - أول تطبيق شامل لخدمات التوصيل السعودية" 
         : "Bjeek - Saudi Arabia's First Comprehensive Delivery Services App",
       description: isArabic
         ? "بجيك يجمع جميع خدمات التوصيل في منصة واحدة - طعام، رحلات، طلبات، وبريد."
         : "Bjeek brings all delivery services together in one platform - food, rides, orders, and mail.",
-    },
-    alternates: {
-      canonical: `${baseUrl}/${locale}`,
     },
   };
 }
@@ -68,11 +81,11 @@ export default async function Home({ params }: HomePageProps) {
   
   return (
     <>
-      <ShaderHero messages={messages} />
-      <TrustAndSupport messages={messages} />
-      <OurServices messages={messages} />
+      <ShaderHero messages={messages} locale={locale} />
+      <TrustAndSupport messages={messages} locale={locale} />
+      <OurServices messages={messages} locale={locale} />
       <InvestmentDashboard messages={messages} />
-      <InvestmentOpportunity messages={messages} />
+      <InvestmentOpportunity messages={messages} locale={locale} />
     </>
   );
 }

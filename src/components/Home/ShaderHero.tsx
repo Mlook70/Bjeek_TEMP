@@ -1,93 +1,86 @@
-'use client'
-
-import PulsingBorderShader from "./pulsing-border-shader"
-// import Image from 'next/image';
-import { motion } from 'framer-motion';
+// import PulsingBorderShader from "./pulsing-border-shader"
+import '@/styles/animations.css'
+import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
+import Image from 'next/image'
 
 interface HeroMessages {
   hero: {
     heroTitle: string;
     heroSubtitle1: string;
   };
+  cta: {
+    joinUs: string;
+  };
 }
 
 interface ShaderHeroProps {
   messages: HeroMessages;
+  locale: string;
 }
 
-export default function ShaderHero({ messages }: ShaderHeroProps) {
+export default function ShaderHero({ messages, locale }: ShaderHeroProps) {
   return (
-    <div className="min-h-screen bg-green-300 text-white overflow-hidden relative">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-black to-emerald-900/20" />
+    <div className="min-h-screen text-white overflow-hidden relative">
+      {/* Background Image - Optimized for LCP */}
+      <Image
+        src="/hero-bg.jpg"
+        alt="Bjeek Hero Background"
+        fill
+        priority
+        fetchPriority="high"
+        quality={85}
+        sizes="100vw"
+        className="object-cover object-center opacity-30"
+      />
+      
+      {/* Background gradient overlay */}
+      <div className="absolute inset-0 " />
 
       {/* Hero content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center min-h-[80vh]">
-          {/* Left side - Text content */}
-          <div className="space-y-6 sm:space-y-8 lg:pr-8 order-1 lg:order-1">
+        <div className="flex items-center justify-center min-h-[80vh]">
+          {/* Centered Text content */}
+          <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
             <div className="space-y-4 sm:space-y-6">
               {/* Main Title */}
-              <motion.h1 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-center lg:text-left leading-[1.1] sm:leading-[1.2]"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.2, delay: 0.6 }}
+              <h1 
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] sm:leading-[1.2] animate-fade-in-scale delay-600 hardware-accelerate"
               >
                 {messages.hero.heroTitle}
-              </motion.h1>
+              </h1>
 
               {/* Subtitle */}
-              <motion.p
-                className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 text-center lg:text-left px-4 sm:px-0"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.9 }}
+              <p
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto animate-fade-in-up delay-900 hardware-accelerate"
               >
                 {messages.hero.heroSubtitle1}
-              </motion.p>
+              </p>
             </div>
 
             {/* Brand Line */}
-            <motion.div 
-              className="w-20 sm:w-24 h-1.5 sm:h-2 bg-[#00B14F] mx-auto lg:mx-0 rounded-full"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 1.5 }}
+            <div 
+              className="w-20 sm:w-24 h-1.5 sm:h-2 bg-[#00B14F] mx-auto rounded-full animate-scale-x delay-1500 hardware-accelerate"
             />
-          </div>
-
-          {/* Right side - Animation */}
-          <div className="flex justify-center lg:justify-end order-2 lg:order-2 mb-8 lg:mb-0">
-            <div className="relative">
-              {/* Glow effect behind the shader */}
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 blur-3xl scale-110" />
-
-              {/* Main shader component - Responsive sizing */}
-              <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[535px] lg:h-[511px]">
-                <PulsingBorderShader />
-              </div>
-
-              {/* Floating elements - Responsive positioning */}
-              <div
-                className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full animate-bounce"
-                style={{ animationDelay: "0s" }}
-              />
-              <div
-                className="absolute top-1/3 -left-3 sm:-left-6 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-400 rounded-full animate-bounce"
-                style={{ animationDelay: "1s" }}
-              />
-              <div
-                className="absolute bottom-1/4 -right-4 sm:-right-8 w-3 h-3 sm:w-4 sm:h-4 bg-green-300 rounded-full animate-bounce"
-                style={{ animationDelay: "2s" }}
-              />
-            </div>
+            
+            {/* CTA Button */}
+            {/* <Link
+              href={`/${locale}/investment-form`}
+              className="group relative inline-flex items-center px-8 sm:px-12 py-4 sm:py-6 text-base sm:text-lg font-medium text-white bg-gradient-to-r from-[#00b14f] to-[#00b14f]/80 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#00b14f]/25 hover:scale-105 animate-bounce-smooth delay-1800 hardware-accelerate"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00b14f]/80 to-[#00b14f] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className={`relative z-10 flex items-center gap-3 ${locale === 'ar' ? 'flex-row-reverse' : ''}`}>
+                {messages.cta.joinUs}
+                <ArrowLeft className={`w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 group-hover:translate-x-1 ${locale === 'ar' ? 'rotate-180' : ''}`} />
+              </span>
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+            </Link> */}
           </div>
         </div>
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 lg:h-32 bg-gradient-to-t from-green-300 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 lg:h-32 bg-gradient-to-t from-[#259244] to-transparent" />
     </div>
   )
 }

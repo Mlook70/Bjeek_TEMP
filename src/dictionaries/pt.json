@@ -1,3 +1,12 @@
 {
-  "soon": "EM BREVE"
+  "soon": "EM BREVE",
+  "navigation": {
+    "home": "Início",
+    "investment": "Oportunidade de Investimento",
+    "joinNow": "Junte-se Agora",
+    "Links": "Links"
+  },
+  "cta": {
+    "joinUs": "Junte-se a Nós"
+  }
 } 

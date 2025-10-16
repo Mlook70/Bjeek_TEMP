@@ -11,10 +11,23 @@ const nextConfig: NextConfig = {
   images: { 
     unoptimized: true 
   },
+  // Fix Turbopack workspace root detection
+  experimental: {
+    turbo: {
+      root: __dirname,
+    },
+  },
   // Enhanced SEO and performance configurations
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
+  
+  // Optimize for modern browsers (reduces legacy JS by ~11KB)
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
   
   // Headers for better SEO and security
   async headers() {
@@ -55,6 +68,24 @@ const nextConfig: NextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=86400, s-maxage=86400',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/css/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/chunks/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

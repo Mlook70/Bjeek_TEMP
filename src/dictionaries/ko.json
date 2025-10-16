@@ -1,3 +1,12 @@
 {
-  "soon": "곧"
+  "soon": "곧",
+  "navigation": {
+    "home": "홈",
+    "investment": "투자 기회",
+    "joinNow": "지금 가입",
+    "Links": "링크"
+  },
+  "cta": {
+    "joinUs": "가입하기"
+  }
 } 

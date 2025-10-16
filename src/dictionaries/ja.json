@@ -1,3 +1,12 @@
 {
-  "soon": "まもなく"
+  "soon": "まもなく",
+  "navigation": {
+    "home": "ホーム",
+    "investment": "投資機会",
+    "joinNow": "今すぐ参加",
+    "Links": "リンク"
+  },
+  "cta": {
+    "joinUs": "参加する"
+  }
 } 

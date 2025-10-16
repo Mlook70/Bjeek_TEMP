@@ -110,6 +110,17 @@ export async function generateMetadata({
       google: "your-google-verification-code", // Replace with actual verification code
     },
     category: "technology",
+    icons: {
+      icon: [
+        { url: '/Logo.png', sizes: '32x32', type: 'image/png' },
+        { url: '/Logo.png', sizes: '192x192', type: 'image/png' },
+        { url: '/Logo.png', sizes: '512x512', type: 'image/png' },
+      ],
+      apple: [
+        { url: '/Logo.png', sizes: '180x180', type: 'image/png' },
+      ],
+    },
+    manifest: '/manifest.json',
   };
 }
 
@@ -228,13 +239,17 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
             __html: JSON.stringify(jsonLd),
           }}
         />
-        <link rel="canonical" href={`${baseUrl}/${locale}`} />
-        <link rel="alternate" hrefLang="ar" href={`${baseUrl}/ar`} />
-        <link rel="alternate" hrefLang="en" href={`${baseUrl}/en`} />
-        <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/ar`} />
         <meta name="theme-color" content="#10b981" />
         <meta name="msapplication-TileColor" content="#10b981" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        {/* Inline Critical CSS for faster initial render */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            *,::before,::after{box-sizing:border-box;border:0 solid #e5e7eb}
+            html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif}
+            body{margin:0;line-height:inherit;background:#212121;color:#ededed}
+            img{display:block;max-width:100%;height:auto}
+          `
+        }} />
       </head>
       <body className="antialiased min-h-screen relative overflow-x-hidden">
         {/* WhatsApp Floating Button - HIDDEN */}

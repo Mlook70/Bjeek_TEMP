@@ -1,10 +1,6 @@
-'use client';
-
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useLocale } from 'next-intl';
-import { getMessages } from '@/i18n';
+import React from 'react';
 import Image from 'next/image';
+import '@/styles/animations.css';
 
 interface ServiceItem {
   title: string;
@@ -30,13 +26,11 @@ interface MessagesType {
 }
 
 interface OurServicesProps {
-    messages: MessagesType;
+  messages: MessagesType;
+  locale?: string;
 }
 
 const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
-  const [hoveredService, setHoveredService] = useState<number | null>(null);
-  const [selectedService, setSelectedService] = useState<number | null>(null);
-  const locale = useLocale();
 
   const services = [
     {
@@ -63,7 +57,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         </svg>
       ),
       title: messages.services.food.title,
-      image: '/food.jpg',
+      image: '/bjeek-food.jpg',
       features: [
         messages.services.food.bullet1,
         messages.services.food.bullet2,
@@ -80,7 +74,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         </svg>
       ),
       title: messages.services.express.title,
-      image: '/shop.png',
+      image: '/bjeek-market.jpg',
       features: [
         messages.services.express.bullet1,
         messages.services.express.bullet2,
@@ -97,7 +91,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         </svg>
       ),
       title: messages.services.logistics.title,
-      image: '/ship.png',
+      image: '/bjeek-log.jpg',
       features: [
         messages.services.logistics.bullet1,
         messages.services.logistics.bullet2,
@@ -115,165 +109,99 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
-          <motion.h2 
-            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#41fc95] to-white mb-6 leading-relaxed"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-            viewport={{ once: true }}
+        <div className="text-center mb-20">
+          <h2 
+            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#41fc95] to-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate"
           >
             {messages.services.servicesTitle}
-          </motion.h2>
+          </h2>
           
-          <motion.p 
-            className="text-2xl md:text-3xl lg:text-4xl text-white/90 max-w-4xl mx-auto leading-relaxed font-semibold"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
+          <p 
+            className="text-2xl md:text-3xl lg:text-4xl text-white/90 max-w-4xl mx-auto leading-relaxed font-semibold animate-fade-in-up delay-500 hardware-accelerate"
           >
             {messages.services.subtitle}
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
         
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Services Grid - Smaller cards with 2 columns on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {services.map((service, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 100, rotateX: -15 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ 
-                duration: 1, 
-                delay: idx * 0.15,
-                ease: [0.25, 0.1, 0.25, 1]
-              }}
-              viewport={{ once: true }}
-              className="group relative cursor-pointer"
-              onMouseEnter={() => setHoveredService(idx)}
-              onMouseLeave={() => setHoveredService(null)}
-              onClick={() => setSelectedService(selectedService === idx ? null : idx)}
+              className="group relative animate-fade-in-up hardware-accelerate"
+              style={{ animationDelay: `${700 + idx * 150}ms` }}
             >
               {/* Main Card */}
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/10 to-white/[0.02] backdrop-blur-xl border border-white/20 transition-all duration-700 group-hover:border-[#00b14f]/50 group-hover:shadow-2xl group-hover:shadow-[#00b14f]/10">
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/10 to-white/[0.02] backdrop-blur-xl border border-white/20 transition-all duration-700 ease-out group-hover:border-[#00b14f]/50 group-hover:shadow-2xl group-hover:shadow-[#00b14f]/10">
                 
                 {/* Gradient Overlay */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-700 rounded-3xl`}></div>
                 
-                {/* Image Section */}
-                <div className="relative h-56 overflow-hidden rounded-t-3xl">
+                {/* Image Section - Square 1:1 aspect ratio with Title Overlay */}
+                <div className="relative aspect-square w-full overflow-hidden rounded-t-3xl bg-gradient-to-br from-gray-900 to-black">
                   <Image  
                     src={service.image}
                     alt={service.title}
-                    width={500}
-                    height={300}
-                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
+                    width={1024}
+                    height={1024}
+                    className="w-full h-full object-cover transition-all duration-1000 ease-out group-hover:scale-110"
                   />
                   
-                  {/* Image Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                  {/* Black Gradient from Bottom to Top */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                   
-                  {/* Floating Icon */}
-                  <motion.div
-                    className={`absolute top-6 ${locale === 'ar' ? 'left-6' : 'right-6'} p-3 bg-[#00b14f]/20 backdrop-blur-md rounded-2xl border border-white/20 text-white`}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {service.icon}
-                  </motion.div>
+                  {/* Title Overlaid on Image at Bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                    <h3 className="text-xl md:text-2xl font-light text-white text-center">
+                      {service.title}
+                    </h3>
+                  </div>
                 </div>
 
-                {/* Content Section */}
-                <div className="p-8">
-                  <motion.h3 
-                    className="text-xl md:text-2xl font-light text-white mb-4"
-                    initial={{ opacity: 0, x: locale === 'ar' ? 20 : -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: idx * 0.1 + 0.3 }}
-                    viewport={{ once: true }}
-                  >
-                    {service.title}
-                  </motion.h3>
+                {/* Features Section - Hidden by default, shows on hover */}
+                <div className="overflow-hidden transition-all duration-500 ease-out max-h-0 group-hover:max-h-96">
+                  <div className="p-6">
+                    {/* Features List */}
+                    <div className="space-y-2 mb-4">
+                      {service.features.map((feature: string, i: number) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"
+                          style={{ 
+                            transitionDelay: `${i * 100}ms`,
+                          }}
+                        >
+                          <div className={`w-1.5 h-1.5 rounded-full ${service.accent} shadow-lg flex-shrink-0`}></div>
+                          <span className="text-white/80 text-sm md:text-base font-light">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
 
-
-
-                  {/* Features List */}
-                  <AnimatePresence>
-                    {selectedService === idx && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="space-y-3 mb-6"
-                      >
-                        {service.features.map((feature: string, i: number) => (
-                          <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: locale === 'ar' ? -20 : 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.4, delay: i * 0.1 }}
-                            className="flex items-center gap-3"
+                    {/* More Button */}
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300">
+                      <span className="group/btn relative inline-flex items-center px-4 py-2 text-sm md:text-base font-medium text-[#00b14f] hover:text-white transition-all duration-300 rounded-full border border-[#00b14f]/30 hover:border-[#00b14f] hover:bg-[#00b14f]/10 hover:scale-105 cursor-pointer">
+                        <span className="relative z-10 flex items-center gap-2">
+                          {messages.buttons.more}
+                          <svg 
+                            className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-y-1" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
                           >
-                            <div className={`w-2 h-2 rounded-full ${service.accent} shadow-lg flex-shrink-0`}></div>
-                            <span className="text-white/80 text-lg md:text-xl lg:text-2xl font-light">{feature}</span>
-                          </motion.div>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  {/* More Button */}
-                  <motion.button
-                    className="group/btn relative inline-flex items-center px-6 py-3 text-lg md:text-xl font-medium text-[#00b14f] hover:text-white transition-all duration-300 rounded-full border border-[#00b14f]/30 hover:border-[#00b14f] hover:bg-[#00b14f]/10"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedService(selectedService === idx ? null : idx);
-                    }}
-                  >
-                    <span className="relative z-10 flex items-center gap-2">
-                      {selectedService === idx ? messages.buttons.close : messages.buttons.more}
-                      <svg 
-                        className={`w-5 h-5 transition-transform duration-300 ${selectedService === idx ? 'rotate-180' : ''}`} 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                  </motion.button>
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Luxury Border Animation */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#00b14f]/20 via-transparent to-[#00b14f]/20 blur-sm"></div>
                 </div>
-
-                {/* Animated Corner Dot */}
-                <AnimatePresence>
-                  {hoveredService === idx && (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0 }}
-                      className={`absolute top-6 ${locale === 'ar' ? 'right-6' : 'left-6'}`}
-                    >
-                      <div className="w-3 h-3 bg-[#00b14f] rounded-full animate-pulse shadow-lg shadow-[#00b14f]/50"></div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       

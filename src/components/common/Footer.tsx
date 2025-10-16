@@ -1,11 +1,12 @@
 'use client'
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
-import { Mail, Phone, MapPin, Twitter, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Twitter, Instagram, ArrowLeft } from 'lucide-react';
 import { FaTiktok, FaSnapchatGhost } from 'react-icons/fa';
 import Image from 'next/image';
+import Link from 'next/link';
+import '@/styles/animations.css';
 
 interface FooterMessages {
   footer: {
@@ -39,6 +40,9 @@ interface FooterMessages {
       terms: string;
     };
   };
+  cta: {
+    joinUs: string;
+  };
 }
 
 interface FooterProps {
@@ -61,20 +65,16 @@ const Footer = ({ messages }: FooterProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           
           {/* Company Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6 animate-fade-in-up delay-300 hardware-accelerate">
             <div className="flex items-center space-x-3">
               <Image
                 src="/Logo.png"
                 alt="Bjeek Logo"
-                width={200}
-                height={200}
-                className="object-contain"
+                width={120}
+                height={120}
+                sizes="120px"
+                className="object-contain w-[120px] h-auto"
+                quality={90}
               />
             </div>
             <p className="text-white/70 text-sm leading-relaxed">
@@ -82,55 +82,40 @@ const Footer = ({ messages }: FooterProps) => {
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, idx) => (
-                <motion.a
+                <a
                   key={idx}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/60 hover:text-[#00b14f] hover:bg-[#00b14f]/10 transition-all duration-300"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/60 hover:text-[#00b14f] hover:bg-[#00b14f]/10 transition-all duration-300 hover:scale-110 active:scale-95"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
-                </motion.a>
+                </a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6 animate-fade-in-up delay-450 hardware-accelerate">
             <h3 className="text-lg font-medium text-white">
               {messages.footer.quickLinks.title}
             </h3>
             <div className="space-y-3">
               {Object.entries(messages.footer.quickLinks.links).map(([key, value]) => (
-                <motion.a
+                <a
                   key={key}
                   href="#"
-                  className="block text-white/70 hover:text-[#00b14f] transition-colors duration-300 text-sm"
-                  whileHover={{ x: locale === 'ar' ? -5 : 5 }}
+                  className="block text-white/70 hover:text-[#00b14f] transition-all duration-300 text-sm hover:translate-x-1"
                 >
                   {value}
-                </motion.a>
+                </a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6 animate-fade-in-up delay-600 hardware-accelerate">
             <h3 className="text-lg font-medium text-white">
               {messages.footer.contact.title}
             </h3>
@@ -150,16 +135,10 @@ const Footer = ({ messages }: FooterProps) => {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Social Media */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6 animate-fade-in-up delay-750 hardware-accelerate">
             <h3 className="text-lg font-medium text-white">
               {messages.footer.social.title}
             </h3>
@@ -168,31 +147,38 @@ const Footer = ({ messages }: FooterProps) => {
             </p>
             <div className="grid grid-cols-2 gap-3">
               {socialLinks.map((social, idx) => (
-                <motion.a
+                <a
                   key={idx}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 bg-gradient-to-r from-[#00b14f]/20 to-[#00b14f]/10 rounded-lg flex items-center justify-center text-white/60 hover:text-white hover:from-[#00b14f]/40 hover:to-[#00b14f]/20 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="h-12 bg-gradient-to-r from-[#00b14f]/20 to-[#00b14f]/10 rounded-lg flex items-center justify-center text-white/60 hover:text-white hover:from-[#00b14f]/40 hover:to-[#00b14f]/20 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
-                </motion.a>
+                </a>
               ))}
             </div>
-          </motion.div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-16 text-center animate-fade-in-up delay-900 hardware-accelerate">
+          <Link
+            href={`/${locale}/investment-form`}
+            className="group relative inline-flex items-center px-8 md:px-12 py-4 md:py-6 text-base md:text-lg font-medium text-white bg-gradient-to-r from-[#00b14f] to-[#00b14f]/80 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#00b14f]/25 hover:scale-105"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-[#00b14f]/80 to-[#00b14f] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className={`relative z-10 flex items-center gap-3 ${locale === 'ar' ? 'flex-row-reverse' : ''}`}>
+              {messages.cta.joinUs}
+              <ArrowLeft className={`w-5 h-5 md:w-6 md:h-6 transition-all duration-300 group-hover:translate-x-1 ${locale === 'ar' ? 'rotate-180' : ''}`} />
+            </span>
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+          </Link>
         </div>
 
         {/* Bottom Bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-12 pt-8 border-t border-white/10"
-        >
+        <div className="mt-12 pt-8 border-t border-white/10 animate-fade-in delay-1050 hardware-accelerate">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-white/50 text-sm">
               {messages.footer.copyright}
@@ -206,7 +192,7 @@ const Footer = ({ messages }: FooterProps) => {
               </a>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Decorative Elements */}

@@ -9,7 +9,11 @@
   "navigation": {
     "home": "Accueil",
     "investment": "Opportunité d'Investissement",
-    "joinNow": "Rejoignez Maintenant"
+    "joinNow": "Rejoignez Maintenant",
+    "Links": "Liens"
+  },
+  "cta": {
+    "joinUs": "Rejoignez-Nous"
   },
   "services": {
     "servicesTitle": "Combien d'apps avez-vous besoin pour livrer une commande?",

@@ -1,0 +1,16 @@
+# Modern browsers only - reduces polyfills and legacy JS
+# This improves performance by targeting only recent browser versions
+
+# Production: Last 2 versions of modern browsers
+> 0.5%
+last 2 versions
+not dead
+not IE 11
+not op_mini all
+
+# Modern ES features support
+chrome >= 90
+firefox >= 88
+safari >= 14
+edge >= 90
+

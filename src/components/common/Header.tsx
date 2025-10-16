@@ -28,8 +28,7 @@ const Header = ({ messages }: HeaderProps) => {
   const navigationItems: Array<{ name: string; href: string; isButton?: boolean }> = [
     { name: messages.navigation.home, href: `/${locale}` },
     { name: messages.navigation.Links, href: `/${locale}/links` },
-    // { name: messages.navigation.investment, href: `/${locale}/investment-form` }, // HIDDEN
-    // { name: messages.navigation.joinNow, href: '#join', isButton: true } // HIDDEN
+    // { name: messages.navigation.joinNow, href: `/${locale}/investment-form`, isButton: true }
   ];
 
   const handleNavigation = (href: string) => {
@@ -59,13 +58,14 @@ const Header = ({ messages }: HeaderProps) => {
           
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer" onClick={() => handleNavigation(`/${locale}`)}>
-            <Image
-              src="/Logo.png"
-              alt="Logo"
-              width={120}
-              height={80}
-              className="object-contain h-36 md:h-28 w-auto"
-              priority
+          <Image
+                src="/Logo.png"
+                alt="Bjeek Logo Header"
+                width={120}
+                height={120}
+                sizes="120px"
+                className="object-contain w-[120px] h-auto"
+                quality={90}
             />
           </div>
 

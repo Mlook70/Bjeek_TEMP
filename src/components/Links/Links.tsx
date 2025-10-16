@@ -1,11 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { 
   Instagram
 } from 'lucide-react';
 import { FaTiktok, FaSnapchatGhost, FaGlobe, FaFileAlt, FaEnvelope, FaExternalLinkAlt } from 'react-icons/fa';
 import Image from 'next/image';
+import '@/styles/animations.css';
 
 // Custom X (Twitter) Icon Component
 const XIcon: React.FC = () => (
@@ -81,16 +81,11 @@ const LinkButton = ({
   delay = 0 
 }: LinkButtonProps) => {
   return (
-    <motion.a
+    <a
       href={href}
       target={external ? "_blank" : "_self"}
       rel={external ? "noopener noreferrer" : ""}
-      className={`group relative w-full h-32 flex flex-col items-center justify-between gap-2 px-4 py-4 rounded-xl font-medium text-base transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl bg-white/10 backdrop-blur-sm border border-white/20 ${hoverColor} text-white text-center`}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{ scale: 1.02, y: -2 }}
-      whileTap={{ scale: 0.98 }}
+      className={`group relative w-full h-32 flex flex-col items-center justify-between gap-2 px-4 py-4 rounded-xl font-medium text-base transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:-translate-y-1 active:scale-[0.98] bg-white/10 backdrop-blur-sm border border-white/20 ${hoverColor} text-white text-center`}
     >
       <span className="text-2xl flex-shrink-0 group-hover:scale-110 transition-transform duration-200">{icon}</span>
       <div className="flex-1 flex flex-col justify-center min-h-0 w-full">
@@ -100,7 +95,7 @@ const LinkButton = ({
       {external && (
         <FaExternalLinkAlt className="text-xs opacity-50 group-hover:opacity-100 transition-opacity duration-200 absolute top-2 right-2" />
       )}
-    </motion.a>
+    </a>
   );
 };
 
@@ -187,78 +182,37 @@ export default function Links({ messages }: LinksProps) {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08
-      }
-    }
-  };
-
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/VED.mp4" type="video/mp4" />
-          <source src="/ved_tem.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
-      </div>
+    <div 
+      className="relative min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{
+        backgroundImage: 'url(/bjeek-background.jpg)'
+      }}
+    >
+      {/* Dark overlay for better text readability */}
+      <div className="fixed inset-0 bg-black/90 -z-10" />
 
       {/* Content */}
       <div className="relative z-10 py-8 px-4">
         <div className="max-w-sm mx-auto md:max-w-4xl lg:max-w-6xl">
           {/* Header */}
-          <motion.div 
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="text-center mb-8 animate-fade-in-up delay-300 hardware-accelerate">
             {/* Subtitle */}
-            <motion.p 
-              className="text-gray-200 text-lg md:text-xl font-bold max-w-sm mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
+            <p className="text-gray-200 text-lg md:text-xl font-bold max-w-sm mx-auto leading-relaxed animate-fade-in-up delay-450 hardware-accelerate">
               {messages.Links.subtitle}
-            </motion.p>
+            </p>
 
             {/* Decorative line */}
-            <motion.div 
-              className="w-16 h-0.5 bg-[#00B14F] mx-auto mt-4 rounded-full"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            />
-          </motion.div>
+            <div className="w-16 h-0.5 bg-[#00B14F] mx-auto mt-4 rounded-full animate-scale-x delay-600 hardware-accelerate" />
+          </div>
 
           {/* Links Container */}
-          <motion.div 
-            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {links.map((link, index) => (
-              <motion.div
+              <div
                 key={link.id}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
-                }}
+                className="animate-fade-in-up hardware-accelerate"
+                style={{ animationDelay: `${750 + index * 50}ms` }}
               >
                 <LinkButton
                   href={link.href}
@@ -270,9 +224,9 @@ export default function Links({ messages }: LinksProps) {
                   external={link.external}
                   delay={0.1 + (index * 0.05)}
                 />
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

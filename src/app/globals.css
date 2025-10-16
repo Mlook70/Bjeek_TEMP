@@ -25,22 +25,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Custom gradients for modern backgrounds */
-.bg-gradient-radial {
-  background: radial-gradient(circle, var(--tw-gradient-stops));
-}
-
-/* Optimize SVG rendering for WebKit browsers */
-.webkit-optimize {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  will-change: auto;
-}
-
-/* Enhance pattern visibility for Chromium browsers */
-@supports (-webkit-appearance: none) {
-  .webkit-optimize {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+/* Performance optimizations */
+img {
+  content-visibility: auto;
 }

@@ -52,10 +52,15 @@ export default function LanguageSwitcher({ className = "" }: LanguageSwitcherPro
 
   return (
     <div className={`relative ${className}`}>
+      <label htmlFor="language-switcher" className="sr-only">
+        {currentLocale === 'ar' ? 'اختر اللغة' : 'Select Language'}
+      </label>
       <select
+        id="language-switcher"
         onChange={(e) => handleLanguageChange(e.target.value)}
         className="bg-black/50 text-white border border-[#00B14F]/50 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B14F] focus:border-[#00B14F] backdrop-blur-sm transition-all duration-200 hover:border-[#00B14F]"
         value={currentLocale}
+        aria-label={currentLocale === 'ar' ? 'اختر اللغة' : 'Select Language'}
       >
         {locales.map((loc) => (
           <option key={loc.code} value={loc.code} className="bg-black text-white">

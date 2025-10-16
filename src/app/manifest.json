@@ -13,30 +13,17 @@
   "categories": ["business", "productivity", "utilities"],
   "icons": [
     {
-      "src": "/icon-192x192.png",
+      "src": "/Logo.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     },
     {
-      "src": "/icon-512x512.png",
+      "src": "/Logo.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     }
   ],
-  "screenshots": [
-    {
-      "src": "/screenshot-mobile-ar.png",
-      "sizes": "390x844",
-      "type": "image/png",
-      "form_factor": "narrow"
-    },
-    {
-      "src": "/screenshot-desktop-ar.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    }
-  ]
+  "screenshots": []
 }

@@ -2,8 +2,9 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
+import '@/styles/animations.css';
 
-// Dynamically import Recharts components with no SSR
+// Dynamically import Recharts components with no SSR for better performance
 const LineChart = dynamic(() => import('recharts').then(mod => ({ default: mod.LineChart })), { ssr: false });
 const Line = dynamic(() => import('recharts').then(mod => ({ default: mod.Line })), { ssr: false });
 const XAxis = dynamic(() => import('recharts').then(mod => ({ default: mod.XAxis })), { ssr: false });
@@ -44,22 +45,22 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
     <section className="py-20 px-6 relative">
       {/* Section Header */}
       <div className="text-center mb-16 max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#41fc95] to-white mb-6 leading-relaxed">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#41fc95] to-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate">
           {messages.dashboard.title}
         </h2>
-        <p className="text-white/80 text-2xl md:text-3xl lg:text-4xl leading-relaxed">
+        <p className="text-white/80 text-2xl md:text-3xl lg:text-4xl leading-relaxed animate-fade-in-up delay-500 hardware-accelerate">
           {messages.dashboard.subtitle}
         </p>
       </div>
 
       {/* Stock Price Chart */}
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-300 hover:border-[#00b14f]/50 hover:shadow-lg hover:shadow-[#00b14f]/10 rounded-3xl p-8">
+      <div className="max-w-7xl mx-auto animate-fade-in-up delay-700 hardware-accelerate">
+        <div className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-500 ease-out hover:border-[#00b14f]/50 hover:shadow-lg hover:shadow-[#00b14f]/10 hover:scale-[1.01] rounded-3xl p-8">
           <div className="mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
               {messages.dashboard.chartTitle}
             </h3>
-            <p className="text-white/70">
+            <p className="text-white/70 text-lg">
               {messages.dashboard.chartSubtitle}
             </p>
           </div>
@@ -87,7 +88,7 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
                     borderRadius: '12px',
                     color: 'white'
                   }}
-                  formatter={(value, name) => [`${value} SAR`, messages.dashboard.tooltipPrice]}
+                  formatter={(value) => [`${value} SAR`, messages.dashboard.tooltipPrice]}
                   labelFormatter={(label) => `${messages.dashboard.tooltipYear}: ${label}`}
                 />
                 <Line 
@@ -104,8 +105,8 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
 
           {/* Chart Legend */}
           <div className="flex flex-wrap justify-center gap-6 mt-6">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-1 bg-[#00B14F] rounded"></div>
+            <div className="flex items-center gap-2 transition-all duration-300 hover:scale-105">
+              <div className="w-4 h-1 bg-[#00B14F] rounded animate-scale-x delay-1200"></div>
               <span className="text-white/80 text-sm">{messages.dashboard.legend}</span>
             </div>
           </div>

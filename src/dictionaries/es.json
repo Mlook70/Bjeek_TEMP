@@ -9,7 +9,11 @@
   "navigation": {
     "home": "Inicio",
     "investment": "Oportunidad de Inversión",
-    "joinNow": "Únete Ahora"
+    "joinNow": "Únete Ahora",
+    "Links": "Enlaces"
+  },
+  "cta": {
+    "joinUs": "Únete a Nosotros"
   },
   "services": {
     "servicesTitle": "¿Cuántas apps necesitas para entregar un pedido?",

@@ -1,3 +1,12 @@
 {
-  "soon": "即将"
+  "soon": "即将",
+  "navigation": {
+    "home": "首页",
+    "investment": "投资机会",
+    "joinNow": "立即加入",
+    "Links": "链接"
+  },
+  "cta": {
+    "joinUs": "加入我们"
+  }
 } 

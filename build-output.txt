@@ -1,0 +1,76 @@
+
+> temb_bjeek@0.1.0 build
+> next build
+
+ ⚠ The config property `experimental.turbo` is deprecated. Move this setting to `config.turbopack` or run `npx @next/codemod@latest next-experimental-turbo-to-turbopack .`
+   ▲ Next.js 15.5.3
+
+   Creating an optimized production build ...
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled successfully in 4.2s
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/13) ...
+Loading messages for locale: en
+Loading messages for locale: ar
+Loading messages for locale: en
+Loading messages for locale: ar
+Loading messages for locale: ar
+Loading messages for locale: ar
+Loading messages for locale: en
+Loading messages for locale: en
+Loading messages for locale: ar
+Loading messages for locale: en
+Invalid locale: undefined, falling back to ar
+Invalid locale: undefined, falling back to ar
+Invalid locale: undefined, falling back to ar
+   Generating static pages (3/13) 
+   Generating static pages (6/13) 
+Loading messages for locale: ar
+Loading messages for locale: ar
+Loading messages for locale: ar
+Loading messages for locale: ar
+Invalid locale: undefined, falling back to ar
+Loading messages for locale: ar
+Loading messages for locale: ar
+Loading messages for locale: ar
+Loading messages for locale: ar
+Invalid locale: undefined, falling back to ar
+Loading messages for locale: en
+Loading messages for locale: en
+Loading messages for locale: ar
+Loading messages for locale: en
+Invalid locale: undefined, falling back to ar
+   Generating static pages (9/13) 
+ ✓ Generating static pages (13/13)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /_not-found                            994 B         103 kB
+├ ● /[locale]                            2.37 kB         110 kB
+├   ├ /en
+├   └ /ar
+├ ● /[locale]/investment-form            6.25 kB         113 kB
+├   ├ /en/investment-form
+├   └ /ar/investment-form
+├ ● /[locale]/links                         2 kB         144 kB
+├   ├ /en/links
+├   └ /ar/links
+├ ○ /manifest.json                           0 B            0 B
+├ ○ /robots.txt                              0 B            0 B
+└ ○ /sitemap.xml                           123 B         102 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/255-40634877ae3e8e9d.js       45.7 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
+  └ other shared chunks (total)          1.97 kB
+
+
+ƒ Middleware                             45.3 kB
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
