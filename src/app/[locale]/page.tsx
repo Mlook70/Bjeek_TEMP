@@ -1,10 +1,11 @@
-import { getMessages } from '@/i18n';
-import OurServices from '@/components/Home/OurServices';
-import InvestmentOpportunity from '@/components/Home/InvestmentOpportunity';
-import InvestmentDashboard from '@/components/Home/InvestmentDashboard';
-import TrustAndSupport from '@/components/Home/TrustAndSupport';
+// import { getMessages } from '@/i18n';
+// import OurServices from '@/components/Home/OurServices';
+// import InvestmentOpportunity from '@/components/Home/InvestmentOpportunity';
+// import InvestmentDashboard from '@/components/Home/InvestmentDashboard';
+// import TrustAndSupport from '@/components/Home/TrustAndSupport';
 import type { Metadata } from 'next';
-import ShaderHero from '@/components/Home/ShaderHero';
+// import ShaderHero from '@/components/Home/ShaderHero';
+import UnderConstruction from '@/components/common/UnderConstruction';
 
 interface HomePageProps {
   params: Promise<{
@@ -77,15 +78,20 @@ export async function generateMetadata({
 
 export default async function Home({ params }: HomePageProps) {
   const { locale } = await params;
-  const messages = await getMessages(locale);
+  // const messages = await getMessages(locale);
   
   return (
     <>
+      <UnderConstruction/>
+      
+      {/* Commented out components - will be restored later */}
+      {/* 
       <ShaderHero messages={messages} locale={locale} />
       <TrustAndSupport messages={messages} locale={locale} />
       <OurServices messages={messages} locale={locale} />
       <InvestmentDashboard messages={messages} />
       <InvestmentOpportunity messages={messages} locale={locale} />
+      */}
     </>
   );
 }

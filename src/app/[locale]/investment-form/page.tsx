@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import InvestmentFormClient from '@/components/InvestmentForm/InvestmentFormClient';
-
+import { redirect } from 'next/navigation';
 interface InvestmentFormPageProps {
   params: Promise<{
     locale: string;
@@ -13,7 +13,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const isArabic = locale === 'ar';
   const baseUrl = 'https://bjeek.com';
-  
+  redirect('/');
+
   return {
     title: isArabic 
       ? "استثمر في بجيك - فرصة استثمارية في مستقبل التوصيل السعودي" 

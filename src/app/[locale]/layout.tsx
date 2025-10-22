@@ -256,11 +256,11 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         {/* <WhatsAppFloatingButton /> */}
         <div className="relative z-10 flex flex-col min-h-screen">
           <NextIntlClientProvider messages={messages} locale={locale}>
-            <Header messages={messages} />
+            {/* <Header messages={messages} /> */}
             <main className="pt-16 md:pt-20 flex-1">
               {children}
             </main>
-            <Footer messages={messages} />
+            {/* <Footer messages={messages} /> */}
           </NextIntlClientProvider>
         </div>
       </body>
