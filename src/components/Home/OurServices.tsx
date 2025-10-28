@@ -57,7 +57,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         </svg>
       ),
       title: messages.services.food.title,
-      image: '/bjeek-food.jpg',
+      image: '/bjeek.png',
       features: [
         messages.services.food.bullet1,
         messages.services.food.bullet2,
@@ -148,7 +148,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
                   />
                   
                   {/* Black Gradient from Bottom to Top */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
                   
                   {/* Title Overlaid on Image at Bottom */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 z-10">

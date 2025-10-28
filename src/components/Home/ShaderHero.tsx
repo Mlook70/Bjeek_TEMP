@@ -24,7 +24,7 @@ export default function ShaderHero({ messages, locale }: ShaderHeroProps) {
     <div className="min-h-screen text-white overflow-hidden relative">
       {/* Background Image - Optimized for LCP */}
       <Image
-        src="/hero-bg.jpg"
+        src="/bjeek-market.jpg"
         alt="Bjeek Hero Background"
         fill
         priority
