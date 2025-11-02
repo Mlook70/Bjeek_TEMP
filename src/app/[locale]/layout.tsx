@@ -7,7 +7,7 @@ import Footer from '@/components/common/Footer';
 import { GoogleTagManager } from '@next/third-parties/google'
 import Script from 'next/script';
 
-import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
+// import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
 
 import "../globals.css";
 
@@ -253,7 +253,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       </head>
       <body className="antialiased min-h-screen relative overflow-x-hidden">
         {/* WhatsApp Floating Button - HIDDEN */}
-        <WhatsAppFloatingButton />
+        {/* <WhatsAppFloatingButton /> */}
         <div className="relative z-10 flex flex-col min-h-screen">
           <NextIntlClientProvider messages={messages} locale={locale}>
             <Header messages={messages} />
