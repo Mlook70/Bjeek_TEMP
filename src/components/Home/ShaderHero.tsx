@@ -1,7 +1,7 @@
 // import PulsingBorderShader from "./pulsing-border-shader"
 import '@/styles/animations.css'
-import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
+// import Link from 'next/link'
+// import { ArrowLeft } from 'lucide-react'
 import Image from 'next/image'
 
 interface HeroMessages {
@@ -24,7 +24,7 @@ export default function ShaderHero({ messages, locale }: ShaderHeroProps) {
     <div className="min-h-screen text-white overflow-hidden relative">
       {/* Background Image - Optimized for LCP */}
       <Image
-        src="/bjeek-market.jpg"
+        src="/bg_1.png"
         alt="Bjeek Hero Background"
         fill
         priority

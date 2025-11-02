@@ -40,7 +40,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         </svg>
       ),
       title: messages.services.ride.title,
-      image: '/car.jpg',
+      image: '/bjeek-ride.jpg',
       features: [
         messages.services.ride.bullet1,
         messages.services.ride.bullet2,
@@ -57,7 +57,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         </svg>
       ),
       title: messages.services.food.title,
-      image: '/bjeek.png',
+      image: '/bjeek-food.jpg',
       features: [
         messages.services.food.bullet1,
         messages.services.food.bullet2,
@@ -91,7 +91,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         </svg>
       ),
       title: messages.services.logistics.title,
-      image: '/bjeek-log.jpg',
+      image: '/bjeek-logistic.jpg',
       features: [
         messages.services.logistics.bullet1,
         messages.services.logistics.bullet2,

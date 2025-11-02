@@ -12,7 +12,7 @@ interface MessagesType {
     investment: string;
     joinNow: string;
     Links: string;
-    blog: string;
+    // blog: string;
   };
 }
 
@@ -28,7 +28,7 @@ const Header = ({ messages }: HeaderProps) => {
 
   const navigationItems: Array<{ name: string; href: string; isButton?: boolean }> = [
     { name: messages.navigation.home, href: `/${locale}` },
-    { name: messages.navigation.blog, href: `/${locale}/blog` },
+    // { name: messages.navigation.blog, href: `/${locale}/blog` },
     { name: messages.navigation.Links, href: `/${locale}/links` },
     // { name: messages.navigation.joinNow, href: `/${locale}/investment-form`, isButton: true }
   ];

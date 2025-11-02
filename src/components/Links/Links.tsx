@@ -186,7 +186,7 @@ export default function Links({ messages }: LinksProps) {
     <div 
       className="relative min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
       style={{
-        backgroundImage: 'url(/bjeek-background.jpg)'
+        backgroundImage: 'url(/bg_1.png)'
       }}
     >
       {/* Dark overlay for better text readability */}

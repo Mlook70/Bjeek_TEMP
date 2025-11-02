@@ -1,11 +1,10 @@
 'use client'
 
 import React from 'react';
-import { useLocale } from 'next-intl';
-import { Mail, Phone, MapPin, Twitter, Instagram, ArrowLeft } from 'lucide-react';
+// import { useLocale } from 'next-intl';
+import { Mail, Phone, MapPin, Twitter, Instagram } from 'lucide-react';
 import { FaTiktok, FaSnapchatGhost } from 'react-icons/fa';
 import Image from 'next/image';
-import Link from 'next/link';
 import '@/styles/animations.css';
 
 interface FooterMessages {
@@ -50,7 +49,7 @@ interface FooterProps {
 }
 
 const Footer = ({ messages }: FooterProps) => {
-  const locale = useLocale();
+  // const locale = useLocale();
 
   const socialLinks = [
     { icon: Twitter, href: 'https://x.com/bjeeksa', label: 'X (Twitter)' },
@@ -162,20 +161,6 @@ const Footer = ({ messages }: FooterProps) => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center animate-fade-in-up delay-900 hardware-accelerate">
-          <Link
-            href={`/${locale}/investment-form`}
-            className="group relative inline-flex items-center px-8 md:px-12 py-4 md:py-6 text-base md:text-lg font-medium text-white bg-gradient-to-r from-[#00b14f] to-[#00b14f]/80 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#00b14f]/25 hover:scale-105"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#00b14f]/80 to-[#00b14f] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span className={`relative z-10 flex items-center gap-3 ${locale === 'ar' ? 'flex-row-reverse' : ''}`}>
-              {messages.cta.joinUs}
-              <ArrowLeft className={`w-5 h-5 md:w-6 md:h-6 transition-all duration-300 group-hover:translate-x-1 ${locale === 'ar' ? 'rotate-180' : ''}`} />
-            </span>
-            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-          </Link>
-        </div>
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10 animate-fade-in delay-1050 hardware-accelerate">

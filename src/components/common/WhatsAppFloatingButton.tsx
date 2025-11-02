@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
-const WHATSAPP_NUMBER = "966542275005"; // Replace with your WhatsApp number
+const WHATSAPP_NUMBER = "966561482760"; // Replace with your WhatsApp number
 
 const WhatsAppFloatingButton: React.FC = () => {
   // Start 20px from the bottom and left

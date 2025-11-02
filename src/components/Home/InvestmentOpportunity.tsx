@@ -1,7 +1,6 @@
 import React from 'react';
-import { TrendingUp, Users, Target, Zap, ArrowLeft } from 'lucide-react';
+import { TrendingUp, Users, Target, Zap } from 'lucide-react';
 import '@/styles/animations.css';
-import Link from 'next/link';
 
 interface InvestmentFeature {
   text: string;
@@ -92,7 +91,7 @@ const InvestmentOpportunity = ({ messages, locale }: InvestmentOpportunityProps)
         </div>
 
         {/* CTA Button */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <Link
             href={`/${locale}/investment-form`}
             className="group relative inline-flex items-center px-8 md:px-12 py-4 md:py-6 text-base md:text-lg font-medium text-white bg-gradient-to-r from-[#00b14f] to-[#00b14f]/80 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#00b14f]/25 hover:scale-105 animate-fade-in-scale delay-2000 hardware-accelerate"
@@ -104,7 +103,7 @@ const InvestmentOpportunity = ({ messages, locale }: InvestmentOpportunityProps)
             </span>
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           </Link>
-        </div>
+        </div> */}
 
         {/* Decorative Elements */}
         <div className="absolute top-1/4 left-8 w-1 h-32 bg-gradient-to-b from-[#00b14f] to-transparent opacity-20 animate-scale-x delay-1200"></div>
