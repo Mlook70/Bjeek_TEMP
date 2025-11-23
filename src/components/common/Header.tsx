@@ -12,7 +12,7 @@ interface MessagesType {
     investment: string;
     joinNow: string;
     Links: string;
-    // blog: string;
+    blog: string;
   };
 }
 
@@ -28,9 +28,9 @@ const Header = ({ messages }: HeaderProps) => {
 
   const navigationItems: Array<{ name: string; href: string; isButton?: boolean }> = [
     { name: messages.navigation.home, href: `/${locale}` },
-    // { name: messages.navigation.blog, href: `/${locale}/blog` },
+    { name: messages.navigation.blog, href: `/${locale}/blog` },
     { name: messages.navigation.Links, href: `/${locale}/links` },
-    // { name: messages.navigation.joinNow, href: `/${locale}/investment-form`, isButton: true }
+    { name: messages.navigation.joinNow, href: `/${locale}/investment-form`, isButton: true }
   ];
 
   const handleNavigation = (href: string) => {
@@ -80,17 +80,17 @@ const Header = ({ messages }: HeaderProps) => {
                 className={`
                   relative px-4 py-2 text-sm lg:text-base font-medium transition-all duration-300
                   ${item.isButton 
-                    ? 'bg-gradient-to-r from-[#00B14F] to-[#00B14F]/80 text-white rounded-full px-6 py-3 hover:shadow-lg hover:shadow-[#00B14F]/25 hover:scale-105' 
+                    ? 'bg-gradient-to-r from-brand-green to-brand-green/80 text-white rounded-full px-6 py-3 hover:shadow-lg hover:shadow-brand-green/25 hover:scale-105' 
                     : isActiveLink(item.href)
-                      ? 'text-[#00B14F]'
-                      : 'text-white hover:text-[#00B14F]'
+                      ? 'text-brand-green'
+                      : 'text-white hover:text-brand-green'
                   }
                 `}
               >
                 {item.name}
                 {!item.isButton && (
                   <span className={`
-                    absolute bottom-0 left-0 w-full h-0.5 bg-[#00B14F] transform origin-left transition-transform duration-300
+                    absolute bottom-0 left-0 w-full h-0.5 bg-brand-green transform origin-left transition-transform duration-300
                     ${isActiveLink(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}
                   `} />
                 )}
@@ -108,7 +108,7 @@ const Header = ({ messages }: HeaderProps) => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-md text-white hover:text-[#00B14F] hover:bg-white/10 transition-colors duration-200"
+              className="md:hidden p-2 rounded-md text-white hover:text-brand-green hover:bg-white/10 transition-colors duration-200"
               aria-label="Toggle menu"
             >
               <svg
@@ -140,10 +140,10 @@ const Header = ({ messages }: HeaderProps) => {
                 className={`
                   block w-full ${locale === 'ar' ? 'text-right' : 'text-left'} px-4 py-3 text-base font-medium rounded-lg transition-all duration-200
                   ${item.isButton 
-                    ? 'bg-gradient-to-r from-[#00B14F] to-[#00B14F]/80 text-white mx-2 text-center hover:shadow-lg hover:shadow-[#00B14F]/25' 
+                    ? 'bg-gradient-to-r from-brand-green to-brand-green/80 text-white mx-2 text-center hover:shadow-lg hover:shadow-brand-green/25' 
                     : isActiveLink(item.href)
-                      ? 'text-[#00B14F] bg-[#00B14F]/10'
-                      : 'text-white hover:text-[#00B14F] hover:bg-white/5'
+                      ? 'text-brand-green bg-brand-green/10'
+                      : 'text-white hover:text-brand-green hover:bg-white/5'
                   }
                 `}
               >

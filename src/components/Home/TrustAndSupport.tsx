@@ -27,7 +27,7 @@ const TrustAndSupport = ({ messages, locale = 'en' }: TrustAndSupportProps) => {
         {/* Header */}
         <div className="text-center mb-10">
           <h2 
-            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#41fc95] to-white mb-6 leading-relaxed animate-fade-in-up delay-300 hardware-accelerate"
+            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent text-white mb-6 leading-relaxed animate-fade-in-up delay-300 hardware-accelerate"
             style={{
               lineHeight: '1.3',
               paddingTop: '0.15em',
@@ -45,8 +45,8 @@ const TrustAndSupport = ({ messages, locale = 'en' }: TrustAndSupportProps) => {
           {/* About Us Image */}
           <div className="relative animate-fade-in-scale delay-500 hardware-accelerate">
             {/* Spotlight Effect from Bottom */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[120%] h-32 bg-gradient-to-t from-[#00b14f]/20 via-[#00b14f]/10 to-transparent rounded-full blur-2xl"></div>
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-20 bg-gradient-to-t from-[#00b14f]/30 via-[#00b14f]/15 to-transparent rounded-full blur-xl"></div>
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[120%] h-32 bg-gradient-to-t from-brand-green/20 via-brand-green/10 to-transparent rounded-full blur-2xl"></div>
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-20 bg-gradient-to-t from-brand-green/30 via-brand-green/15 to-transparent rounded-full blur-xl"></div>
             
             <div className="relative z-10 max-w-md mx-auto">
               <Image
@@ -60,8 +60,8 @@ const TrustAndSupport = ({ messages, locale = 'en' }: TrustAndSupportProps) => {
             </div>
             
             {/* Floating Decorative Elements */}
-            <div className="absolute top-8 right-8 w-3 h-3 bg-[#00b14f] rounded-full shadow-lg shadow-[#00b14f]/50 animate-pulse"></div>
-            <div className="absolute bottom-12 left-8 w-2 h-2 bg-[#00b14f] rounded-full shadow-lg shadow-[#00b14f]/50 animate-pulse delay-500"></div>
+            <div className="absolute top-8 right-8 w-3 h-3 bg-brand-green rounded-full shadow-lg shadow-brand-green/50 animate-pulse"></div>
+            <div className="absolute bottom-12 left-8 w-2 h-2 bg-brand-green rounded-full shadow-lg shadow-brand-green/50 animate-pulse delay-500"></div>
           </div>
 
           {/* Trust Elements - 2 cards per row with equal heights */}
@@ -73,16 +73,16 @@ const TrustAndSupport = ({ messages, locale = 'en' }: TrustAndSupportProps) => {
                 style={{ animationDelay: `${600 + idx * 200}ms` }}
               >
                 {/* Main Card - Full height */}
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 h-full transition-all duration-500 ease-out hover:border-[#00b14f]/50 hover:shadow-xl hover:shadow-[#00b14f]/10 hover:scale-105 hover:-translate-y-1">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 h-full transition-all duration-500 ease-out hover:border-brand-green/50 hover:shadow-xl hover:shadow-brand-green/10 hover:scale-105 hover:-translate-y-1">
                   
                   {/* Dynamic Background Pattern */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-green/10 to-brand-green/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   {/* Content - Full height with flex layout */}
                   <div className="relative p-6 lg:p-8 h-full flex flex-col">
                     {/* Title */}
                     <h3 className="text-xl md:text-2xl font-light text-white mb-4 tracking-wide flex items-center gap-3">
-                      <div className="w-3 h-3 bg-[#00b14f] rounded-full shadow-lg shadow-[#00b14f]/50"></div>
+                      <div className="w-3 h-3 bg-brand-green rounded-full shadow-lg shadow-brand-green/50"></div>
                       {element.title}
                     </h3>
 
@@ -94,7 +94,7 @@ const TrustAndSupport = ({ messages, locale = 'en' }: TrustAndSupportProps) => {
 
                   {/* Luxury Border Animation */}
                   <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 opacity-20 blur-sm"></div>
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-brand-green to-brand-green opacity-20 blur-sm"></div>
                   </div>
                 </div>
               </div>
@@ -103,7 +103,7 @@ const TrustAndSupport = ({ messages, locale = 'en' }: TrustAndSupportProps) => {
         </div>
 
         {/* Bottom Decorative Line */}
-        <div className="mt-20 h-px bg-gradient-to-r from-transparent via-[#00b14f]/50 to-transparent animate-scale-x delay-1200 hardware-accelerate"></div>
+        <div className="mt-20 h-px bg-gradient-to-r from-transparent via-brand-green/50 to-transparent animate-scale-x delay-1200 hardware-accelerate"></div>
       </div>
     </section>
   );

@@ -58,7 +58,7 @@ export default function LanguageSwitcher({ className = "" }: LanguageSwitcherPro
       <select
         id="language-switcher"
         onChange={(e) => handleLanguageChange(e.target.value)}
-        className="bg-black/50 text-white border border-[#00B14F]/50 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B14F] focus:border-[#00B14F] backdrop-blur-sm transition-all duration-200 hover:border-[#00B14F]"
+        className="bg-black/50 text-white border border-brand-green/50 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green backdrop-blur-sm transition-all duration-200 hover:border-brand-green"
         value={currentLocale}
         aria-label={currentLocale === 'ar' ? 'اختر اللغة' : 'Select Language'}
       >

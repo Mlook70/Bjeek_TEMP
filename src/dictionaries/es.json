@@ -10,7 +10,8 @@
     "home": "Inicio",
     "investment": "Oportunidad de Inversión",
     "joinNow": "Únete Ahora",
-    "Links": "Enlaces"
+    "Links": "Enlaces",
+    "blog": "Blog"
   },
   "cta": {
     "joinUs": "Únete a Nosotros"
@@ -137,5 +138,10 @@
     "priceLabel": "Precio de las Acciones (SAR)",
     "tooltipPrice": "Precio de las Acciones",
     "tooltipYear": "Año"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "message": "¡Estamos aquí para ayudar! Si tienes alguna pregunta, necesitas soporte o quieres saber más sobre Bjeek, contáctanos por WhatsApp. Nuestro equipo está listo para ayudarte con lo que necesites.",
+    "whatsappButton": "Chatea con nosotros en WhatsApp"
   }
 } 

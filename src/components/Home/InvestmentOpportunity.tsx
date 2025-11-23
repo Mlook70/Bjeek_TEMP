@@ -40,7 +40,7 @@ const InvestmentOpportunity = ({ messages, locale }: InvestmentOpportunityProps)
         {/* Header */}
         <div className="text-center mb-20">
           <h2 
-            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#41fc95] to-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate"
+            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent text-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate"
             style={{
               lineHeight: '1.3',
               paddingTop: '0.15em',
@@ -61,13 +61,13 @@ const InvestmentOpportunity = ({ messages, locale }: InvestmentOpportunityProps)
               style={{ animationDelay: `${500 + idx * 150}ms` }}
             >
               {/* Feature Card */}
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-500 ease-out hover:border-[#00b14f]/50 hover:shadow-xl hover:shadow-[#00b14f]/10 hover:scale-105 hover:-translate-y-2 p-8 h-full">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-500 ease-out hover:border-brand-green/50 hover:shadow-xl hover:shadow-brand-green/10 hover:scale-105 hover:-translate-y-2 p-8 h-full">
                 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-emerald-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-green/40 to-brand-green/50 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl"></div>
                 
                 {/* Icon */}
-                <div className="mb-6 text-[#00b14f] group-hover:text-white transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6">
+                <div className="mb-6 text-brand-green group-hover:text-white transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6">
                   {featureIcons[idx]}
                 </div>
 
@@ -78,12 +78,12 @@ const InvestmentOpportunity = ({ messages, locale }: InvestmentOpportunityProps)
 
                 {/* Luxury Border Animation */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#00b14f]/20 via-transparent to-[#00b14f]/20 blur-sm"></div>
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-brand-green/20 via-transparent to-brand-green/20 blur-sm"></div>
                 </div>
 
                 {/* Static Dot - Visible on Hover */}
                 <div className={`absolute top-4 ${locale === 'ar' ? 'right-4' : 'left-4'} opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300`}>
-                  <div className="w-2 h-2 bg-[#00b14f] rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-brand-green rounded-full animate-pulse"></div>
                 </div>
               </div>
             </div>
@@ -94,9 +94,9 @@ const InvestmentOpportunity = ({ messages, locale }: InvestmentOpportunityProps)
         {/* <div className="text-center">
           <Link
             href={`/${locale}/investment-form`}
-            className="group relative inline-flex items-center px-8 md:px-12 py-4 md:py-6 text-base md:text-lg font-medium text-white bg-gradient-to-r from-[#00b14f] to-[#00b14f]/80 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#00b14f]/25 hover:scale-105 animate-fade-in-scale delay-2000 hardware-accelerate"
+            className="group relative inline-flex items-center px-8 md:px-12 py-4 md:py-6 text-base md:text-lg font-medium text-white bg-gradient-to-r from-brand-green to-brand-green/80 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-brand-green/25 hover:scale-105 animate-fade-in-scale delay-2000 hardware-accelerate"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#00b14f]/80 to-[#00b14f] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-green/80 to-brand-green opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <span className={`relative z-10 flex items-center gap-3 ${locale === 'ar' ? 'flex-row-reverse' : ''}`}>
               {messages.cta.joinUs}
               <ArrowLeft className={`w-5 h-5 md:w-6 md:h-6 transition-all duration-300 group-hover:translate-x-1 ${locale === 'ar' ? 'rotate-180' : ''}`} />
@@ -106,10 +106,10 @@ const InvestmentOpportunity = ({ messages, locale }: InvestmentOpportunityProps)
         </div> */}
 
         {/* Decorative Elements */}
-        <div className="absolute top-1/4 left-8 w-1 h-32 bg-gradient-to-b from-[#00b14f] to-transparent opacity-20 animate-scale-x delay-1200"></div>
-        <div className="absolute bottom-1/4 right-8 w-1 h-32 bg-gradient-to-t from-[#00b14f] to-transparent opacity-20 animate-scale-x delay-1500"></div>
+        <div className="absolute top-1/4 left-8 w-1 h-32 bg-gradient-to-b from-brand-green to-transparent opacity-20 animate-scale-x delay-1200"></div>
+        <div className="absolute bottom-1/4 right-8 w-1 h-32 bg-gradient-to-t from-brand-green to-transparent opacity-20 animate-scale-x delay-1500"></div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 lg:h-32 bg-gradient-to-t from-green-500 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 lg:h-32 bg-gradient-to-t from-brand-green to-transparent" />
     </section>
   );
 };

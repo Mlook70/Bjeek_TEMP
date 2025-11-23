@@ -4,9 +4,15 @@
     "home": "홈",
     "investment": "투자 기회",
     "joinNow": "지금 가입",
-    "Links": "링크"
+    "Links": "링크",
+    "blog": "블로그"
   },
   "cta": {
     "joinUs": "가입하기"
+  },
+  "contact": {
+    "title": "문의하기",
+    "message": "도와드리겠습니다! 질문이 있으시거나 지원이 필요하거나 Bjeek에 대해 더 알고 싶으시면 WhatsApp으로 문의해 주세요. 저희 팀은 필요한 모든 것을 도와드릴 준비가 되어 있습니다.",
+    "whatsappButton": "WhatsApp으로 채팅하기"
   }
 } 

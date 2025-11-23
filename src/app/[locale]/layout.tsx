@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, locales, type Locale } from '@/i18n';
 import { notFound } from 'next/navigation';
-import Header from '@/components/common/Header';
-import Footer from '@/components/common/Footer';
 import { GoogleTagManager } from '@next/third-parties/google'
 import Script from 'next/script';
 
-// import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
+import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
+import ConditionalLayout from '@/components/common/ConditionalLayout';
 
 import "../globals.css";
 
@@ -25,7 +24,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }> 
 }): Promise<Metadata> {
   const { locale } = await params;
-  const messages = await getMessages(locale);
   
   const isArabic = locale === 'ar';
   
@@ -256,11 +254,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         {/* <WhatsAppFloatingButton /> */}
         <div className="relative z-10 flex flex-col min-h-screen">
           <NextIntlClientProvider messages={messages} locale={locale}>
-            <Header messages={messages} />
-            <main className="pt-16 md:pt-20 flex-1">
+            <ConditionalLayout messages={messages}>
               {children}
-            </main>
-            <Footer messages={messages} />
+              <WhatsAppFloatingButton />
+            </ConditionalLayout>
           </NextIntlClientProvider>
         </div>
       </body>

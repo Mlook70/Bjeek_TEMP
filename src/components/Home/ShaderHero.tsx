@@ -24,24 +24,26 @@ export default function ShaderHero({ messages, locale }: ShaderHeroProps) {
     <div className="min-h-screen text-white overflow-hidden relative">
       {/* Background Image - Optimized for LCP */}
       <Image
-        src="/bg_1.png"
+        src="/bg.jpg"
         alt="Bjeek Hero Background"
         fill
         priority
         fetchPriority="high"
         quality={85}
         sizes="100vw"
-        className="object-cover object-center opacity-30"
+        className="object-cover object-center opacity-30 grayscale"
       />
       
-      {/* Background gradient overlay */}
-      <div className="absolute inset-0 " />
+      {/* Background gradient overlay - horizontal: strong at content side, soft at image side */}
+      <div className={`absolute inset-0 ${locale === 'ar' 
+        ? 'bg-gradient-to-l from-black via-black/90 to-transparent' 
+        : 'bg-gradient-to-r from-black via-black/90 to-transparent'}`} />
 
       {/* Hero content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        <div className="flex items-center justify-center min-h-[80vh]">
-          {/* Centered Text content */}
-          <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
+        <div className="flex items-center min-h-[80vh]">
+          {/* Text content */}
+          <div className={`max-w-4xl space-y-6 sm:space-y-8 ${locale === 'ar' ? 'text-right ml-auto' : 'text-left mr-auto'}`}>
             <div className="space-y-4 sm:space-y-6">
               {/* Main Title */}
               <h1 
@@ -52,7 +54,7 @@ export default function ShaderHero({ messages, locale }: ShaderHeroProps) {
 
               {/* Subtitle */}
               <p
-                className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto animate-fade-in-up delay-900 hardware-accelerate"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-3xl animate-fade-in-up delay-900 hardware-accelerate"
               >
                 {messages.hero.heroSubtitle1}
               </p>
@@ -60,15 +62,15 @@ export default function ShaderHero({ messages, locale }: ShaderHeroProps) {
 
             {/* Brand Line */}
             <div 
-              className="w-20 sm:w-24 h-1.5 sm:h-2 bg-[#00B14F] mx-auto rounded-full animate-scale-x delay-1500 hardware-accelerate"
+              className={`w-20 sm:w-24 h-1.5 sm:h-2 bg-brand-green rounded-full animate-scale-x delay-1500 hardware-accelerate ${locale === 'ar' ? 'ml-auto' : ''}`}
             />
             
             {/* CTA Button */}
             {/* <Link
               href={`/${locale}/investment-form`}
-              className="group relative inline-flex items-center px-8 sm:px-12 py-4 sm:py-6 text-base sm:text-lg font-medium text-white bg-gradient-to-r from-[#00b14f] to-[#00b14f]/80 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#00b14f]/25 hover:scale-105 animate-bounce-smooth delay-1800 hardware-accelerate"
+              className="group relative inline-flex items-center px-8 sm:px-12 py-4 sm:py-6 text-base sm:text-lg font-medium text-white bg-gradient-to-r from-brand-green to-brand-green/80 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-brand-green/25 hover:scale-105 animate-bounce-smooth delay-1800 hardware-accelerate"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00b14f]/80 to-[#00b14f] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-green/80 to-brand-green opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className={`relative z-10 flex items-center gap-3 ${locale === 'ar' ? 'flex-row-reverse' : ''}`}>
                 {messages.cta.joinUs}
                 <ArrowLeft className={`w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 group-hover:translate-x-1 ${locale === 'ar' ? 'rotate-180' : ''}`} />

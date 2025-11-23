@@ -49,7 +49,7 @@ const WhatsAppFloatingButton: React.FC = () => {
         transition: dragging.current ? "none" : "box-shadow 0.2s",
         boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
         borderRadius: "50%",
-        background: "#25D366",
+        background: "#259244",
         width: 60,
         height: 60,
         display: "flex",

@@ -4,9 +4,15 @@
     "home": "Casa",
     "investment": "Opportunità di Investimento",
     "joinNow": "Unisciti Ora",
-    "Links": "Collegamenti"
+    "Links": "Collegamenti",
+    "blog": "Blog"
   },
   "cta": {
     "joinUs": "Unisciti a Noi"
+  },
+  "contact": {
+    "title": "Contattaci",
+    "message": "Siamo qui per aiutarti! Se hai domande, hai bisogno di supporto o vuoi saperne di più su Bjeek, contattaci tramite WhatsApp. Il nostro team è pronto ad assisterti con tutto ciò di cui hai bisogno.",
+    "whatsappButton": "Chatta con noi su WhatsApp"
   }
 } 

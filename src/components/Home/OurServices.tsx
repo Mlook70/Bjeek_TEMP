@@ -47,8 +47,8 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         messages.services.ride.bullet3,
         messages.services.ride.bullet4
       ],
-      color: 'from-[#00b14f] to-[#00b14f]',
-      accent: 'bg-[#00b14f]'
+      color: 'from-brand-green to-brand-green',
+      accent: 'bg-brand-green'
     },
     {
       icon: (
@@ -64,8 +64,8 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         messages.services.food.bullet3,
         messages.services.food.bullet4
       ],
-      color: 'from-[#00b14f] to-[#00b14f]',
-      accent: 'bg-[#00b14f]'
+      color: 'from-brand-green to-brand-green',
+      accent: 'bg-brand-green'
     },
     {
       icon: (
@@ -81,8 +81,8 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         messages.services.express.bullet3,
         messages.services.express.bullet4
       ],
-      color: 'from-[#00b14f] to-[#00b14f]',
-      accent: 'bg-[#00b14f]'
+      color: 'from-brand-green to-brand-green',
+      accent: 'bg-brand-green'
     },
     {
       icon: (
@@ -98,8 +98,8 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         messages.services.logistics.bullet3,
         messages.services.logistics.bullet4
       ],
-      color: 'from-[#00b14f] to-[#00b14f]',
-      accent: 'bg-[#00b14f]'
+      color: 'from-brand-green to-brand-green',
+      accent: 'bg-brand-green'
     },
   ];
 
@@ -111,7 +111,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         {/* Header */}
         <div className="text-center mb-20">
           <h2 
-            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#41fc95] to-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate"
+            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent text-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate"
           >
             {messages.services.servicesTitle}
           </h2>
@@ -132,7 +132,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
               style={{ animationDelay: `${700 + idx * 150}ms` }}
             >
               {/* Main Card */}
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/10 to-white/[0.02] backdrop-blur-xl border border-white/20 transition-all duration-700 ease-out group-hover:border-[#00b14f]/50 group-hover:shadow-2xl group-hover:shadow-[#00b14f]/10">
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/10 to-white/[0.02] backdrop-blur-xl border border-white/20 transition-all duration-700 ease-out group-hover:border-brand-green/50 group-hover:shadow-2xl group-hover:shadow-brand-green/10">
                 
                 {/* Gradient Overlay */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-700 rounded-3xl`}></div>
@@ -179,7 +179,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
 
                     {/* More Button */}
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300">
-                      <span className="group/btn relative inline-flex items-center px-4 py-2 text-sm md:text-base font-medium text-[#00b14f] hover:text-white transition-all duration-300 rounded-full border border-[#00b14f]/30 hover:border-[#00b14f] hover:bg-[#00b14f]/10 hover:scale-105 cursor-pointer">
+                      <span className="group/btn relative inline-flex items-center px-4 py-2 text-sm md:text-base font-medium text-brand-green hover:text-white transition-all duration-300 rounded-full border border-brand-green/30 hover:border-brand-green hover:bg-brand-green/10 hover:scale-105 cursor-pointer">
                         <span className="relative z-10 flex items-center gap-2">
                           {messages.buttons.more}
                           <svg 
@@ -198,7 +198,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
 
                 {/* Luxury Border Animation */}
                 <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#00b14f]/20 via-transparent to-[#00b14f]/20 blur-sm"></div>
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-brand-green/20 via-transparent to-brand-green/20 blur-sm"></div>
                 </div>
               </div>
             </div>
@@ -206,7 +206,7 @@ const OurServices: React.FC<OurServicesProps> = ({ messages }) => {
         </div>
       
       </div>
-      <div className="absolute bottom-[-100px] left-0 right-0 h-56 sm:h-36 lg:h-48 bg-gradient-to-t from-green-500 to-transparent" />
+      <div className="absolute bottom-[-100px] left-0 right-0 h-56 sm:h-36 lg:h-48 bg-gradient-to-t from-brand-green to-transparent" />
     </section>
   );
 };

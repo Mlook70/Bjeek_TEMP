@@ -1,130 +1,129 @@
-import { getMessages } from '@/i18n';
-import { getAllBlogPosts } from '@/lib/blogData';
+import React from 'react';
+import { Metadata } from 'next';
+import { generateMetadata as generateSEOMetadata, generateBreadcrumbs } from '@/lib/seo-utils';
+import { fetchBlogPosts } from '@/lib/blogData';
+import EnhancedStructuredData from '@/components/seo/EnhancedStructuredData';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
+import Image from 'next/image';
+import DefaultLayout from '@/components/layouts/DefaultLayout';
 
-interface BlogPageProps {
-  params: Promise<{
-    locale: string;
-  }>;
-}
+export const metadata: Metadata = generateSEOMetadata({
+  title: 'المدونة - بجيك',
+  description: 'مدونة بجيك - مقالات ونصائح حول خدمات التوصيل، الاستثمار، والنمو في قطاع الخدمات اللوجستية',
+  keywords: 'مدونة بجيك، مقالات استثمارية، نصائح مالية، خدمات التوصيل، الاستثمار في السعودية، التخطيط المالي',
+  url: '/blog',
+  type: 'website',
+  locale: 'ar',
+});
 
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ locale: string }> 
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const isArabic = locale === 'ar';
-  
-  return {
-    title: isArabic 
-      ? "المدونة - بجيك" 
-      : "Blog - Bjeek",
-    description: isArabic
-      ? "اكتشف آخر المقالات والأخبار حول تطبيقات التوصيل والتكنولوجيا في السعودية"
-      : "Discover the latest articles and news about delivery apps and technology in Saudi Arabia",
-    keywords: isArabic
-      ? "مدونة بجيك, مقالات توصيل, تطبيقات سعودية, تكنولوجيا, توصيل طعام"
-      : "Bjeek blog, delivery articles, Saudi apps, technology, food delivery",
-  };
-}
+export default async function BlogPage() {
+  const locale = 'ar'; // Default to Arabic for this project
 
-export default async function BlogPage({ params }: BlogPageProps) {
-  const { locale } = await params;
-  const messages = await getMessages(locale);
-  const isArabic = locale === 'ar';
-  const blogPosts = getAllBlogPosts();
-  redirect('/');
+  // Generate breadcrumbs
+  const breadcrumbs = generateBreadcrumbs(locale, [
+    { name: 'المدونة', href: '/blog' }
+  ]);
+
+  // Fetch posts from API
+  const regularPosts = await fetchBlogPosts();
+
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            {isArabic ? "مدونة بجيك" : "Bjeek Blog"}
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            {isArabic 
-              ? "اكتشف آخر المقالات والأخبار حول تطبيقات التوصيل والتكنولوجيا في السعودية"
-              : "Discover the latest articles and news about delivery apps and technology in Saudi Arabia"
-            }
-          </p>
-        </div>
-
-        {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
-            <article 
-              key={post.slug}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="p-6">
-                <div className="mb-4">
-                  <span className="inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">
-                    {post.category.ar}
-                  </span>
-                </div>
-                
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2">
-                  {post.titleH1.ar}
-                </h2>
-                
-                <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-                  {post.description.ar}
-                </p>
-                
-                <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
-                  <span>{post.author}</span>
-                  <span>{post.readTime}</span>
-                </div>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {post.tags.ar.slice(0, 3).map((tag, index) => (
-                    <span 
-                      key={index}
-                      className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <Link 
-                  href={`/${locale}/blog/${post.slug}`}
-                  className="inline-flex items-center text-green-600 hover:text-green-700 font-medium"
-                >
-                  {isArabic ? "اقرأ المزيد" : "Read More"}
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* Empty State */}
-        {blogPosts.length === 0 && (
-          <div className="text-center py-12">
-            <div className="text-gray-400 dark:text-gray-500 mb-4">
-              <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
+    <>
+      {/* Enhanced Structured Data for Blog */}
+      <EnhancedStructuredData 
+        locale={locale} 
+        pageType="website"
+        breadcrumbs={breadcrumbs}
+      />
+      
+      <DefaultLayout>
+        <div className="pt-24 pb-16 min-h-screen">
+          <div className="container mx-auto px-4">
+            {/* Breadcrumbs */}
+            <Breadcrumbs items={breadcrumbs} locale={locale} />
+            
+            {/* Page Header */}
+            <div className="text-center mb-12">
+              <h1 className="text-4xl md:text-5xl font-bold text-[#00b14f] mb-4">
+                المدونة
+              </h1>
+              <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+                اكتشف أحدث المقالات والأخبار حول خدمات التوصيل والاستثمار والنمو
+              </p>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-              {isArabic ? "لا توجد مقالات بعد" : "No articles yet"}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              {isArabic 
-                ? "سنقوم بإضافة مقالات جديدة قريباً"
-                : "We'll be adding new articles soon"
-              }
-            </p>
+
+            {/* Blog Posts Section */}
+            <section>
+              <h2 className="text-2xl font-bold text-[#00b14f] mb-8">
+                أحدث المقالات
+              </h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {regularPosts.map((post) => {
+                  // Convert tags string to array
+                  const tagsArray = post.tags ? post.tags.split('-').map(tag => tag.trim()) : [];
+                  // Use API image or fallback to default
+                  const imageUrl = post.image?.url || '/Hero.png';
+                  
+                  return (
+                    <Card key={post.slug} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-black">
+                      <div className="relative h-64">
+                        <Image
+                          src={imageUrl}
+                          alt={post.titleH1}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          {post.category && (
+                            <Badge variant="outline" className="border-[#00b14f] text-[#00b14f]">
+                              {post.category}
+                            </Badge>
+                          )}
+                          <span className="text-sm text-gray-600 dark:text-gray-400">
+                            {new Date(post.publishedAt).toLocaleDateString(
+                              'ar-SA',
+                              { month: 'short', day: 'numeric' }
+                            )}
+                          </span>
+                        </div>
+                        <CardTitle className="text-lg line-clamp-2 text-gray-900 dark:text-white">
+                          {post.titleH1}
+                        </CardTitle>
+                        <CardDescription className="line-clamp-3 text-gray-600 dark:text-gray-400">
+                          {post.description}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {tagsArray.slice(0, 2).map((tag, index) => (
+                            <Badge key={index} variant="secondary" className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                        <Link href={`/blog/${encodeURIComponent(post.slug)}`}>
+                          <Button variant="outline" className="w-full border-[#00b14f] text-[#00b14f] hover:bg-[#00b14f] hover:text-white">
+                            اقرأ المزيد
+                            <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
+                          </Button>
+                        </Link>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </section>
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      </DefaultLayout>
+    </>
   );
 }
+

@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react';
-// import { useLocale } from 'next-intl';
+import { useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { Mail, Phone, MapPin, Twitter, Instagram } from 'lucide-react';
 import { FaTiktok, FaSnapchatGhost } from 'react-icons/fa';
 import Image from 'next/image';
@@ -49,7 +50,8 @@ interface FooterProps {
 }
 
 const Footer = ({ messages }: FooterProps) => {
-  // const locale = useLocale();
+  const locale = useLocale();
+  const router = useRouter();
 
   const socialLinks = [
     { icon: Twitter, href: 'https://x.com/bjeeksa', label: 'X (Twitter)' },
@@ -57,6 +59,29 @@ const Footer = ({ messages }: FooterProps) => {
     { icon: FaTiktok, href: 'https://www.tiktok.com/@bjeeksa', label: 'TikTok' },
     { icon: FaSnapchatGhost, href: 'https://www.snapchat.com/add/bjeeksa', label: 'Snapchat' }
   ];
+
+  const quickLinksMap: Record<string, string> = {
+    home: `/${locale}`,
+    services: `/${locale}#services`,
+    about: `/${locale}#about`,
+    contact: `/${locale}#contact`,
+    investment: `/${locale}/investment-form`
+  };
+
+  const handleQuickLinkClick = (key: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const href = quickLinksMap[key];
+    if (href) {
+      if (href.startsWith('#')) {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        router.push(href);
+      }
+    }
+  };
 
   return (
     <footer className="relative bg-gradient-to-b from-black/90 to-black border-t border-white/10">
@@ -86,7 +111,7 @@ const Footer = ({ messages }: FooterProps) => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/60 hover:text-[#00b14f] hover:bg-[#00b14f]/10 transition-all duration-300 hover:scale-110 active:scale-95"
+                  className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/60 hover:text-brand-green hover:bg-brand-green/10 transition-all duration-300 hover:scale-110 active:scale-95"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -104,8 +129,9 @@ const Footer = ({ messages }: FooterProps) => {
               {Object.entries(messages.footer.quickLinks.links).map(([key, value]) => (
                 <a
                   key={key}
-                  href="#"
-                  className="block text-white/70 hover:text-[#00b14f] transition-all duration-300 text-sm hover:translate-x-1"
+                  href={quickLinksMap[key] || '#'}
+                  onClick={(e) => handleQuickLinkClick(key, e)}
+                  className="block text-white/70 hover:text-brand-green transition-all duration-300 text-sm hover:translate-x-1 cursor-pointer"
                 >
                   {value}
                 </a>
@@ -120,15 +146,15 @@ const Footer = ({ messages }: FooterProps) => {
             </h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-[#00b14f]" />
+                <Mail className="w-5 h-5 text-brand-green" />
                 <span className="text-white/70 text-sm">{messages.footer.contact.email}</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-[#00b14f]" />
+                <Phone className="w-5 h-5 text-brand-green" />
                 <span className="text-white/70 text-sm" dir="ltr">{messages.footer.contact.phone}</span>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-[#00b14f] mt-0.5" />
+                <MapPin className="w-5 h-5 text-brand-green mt-0.5" />
                 <span className="text-white/70 text-sm leading-relaxed">
                   {messages.footer.contact.address}
                 </span>
@@ -151,7 +177,7 @@ const Footer = ({ messages }: FooterProps) => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 bg-gradient-to-r from-[#00b14f]/20 to-[#00b14f]/10 rounded-lg flex items-center justify-center text-white/60 hover:text-white hover:from-[#00b14f]/40 hover:to-[#00b14f]/20 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                  className="h-12 bg-gradient-to-r from-brand-green/20 to-brand-green/10 rounded-lg flex items-center justify-center text-white/60 hover:text-white hover:from-brand-green/40 hover:to-brand-green/20 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -169,10 +195,10 @@ const Footer = ({ messages }: FooterProps) => {
               {messages.footer.copyright}
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-white/50 hover:text-[#00b14f] text-sm transition-colors duration-300">
+              <a href="#" className="text-white/50 hover:text-brand-green text-sm transition-colors duration-300">
                 {messages.footer.legal.privacy}
               </a>
-              <a href="#" className="text-white/50 hover:text-[#00b14f] text-sm transition-colors duration-300">
+              <a href="#" className="text-white/50 hover:text-brand-green text-sm transition-colors duration-300">
                 {messages.footer.legal.terms}
               </a>
             </div>
@@ -181,8 +207,8 @@ const Footer = ({ messages }: FooterProps) => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-[#00b14f]/50 to-transparent"></div>
-      <div className="absolute top-0 right-1/4 w-px h-32 bg-gradient-to-b from-[#00b14f]/50 to-transparent"></div>
+      <div className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-brand-green/50 to-transparent"></div>
+      <div className="absolute top-0 right-1/4 w-px h-32 bg-gradient-to-b from-brand-green/50 to-transparent"></div>
     </footer>
   );
 };

@@ -45,7 +45,7 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
     <section className="py-20 px-6 relative">
       {/* Section Header */}
       <div className="text-center mb-16 max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-[#41fc95] to-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent text-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate">
           {messages.dashboard.title}
         </h2>
         <p className="text-white/80 text-2xl md:text-3xl lg:text-4xl leading-relaxed animate-fade-in-up delay-500 hardware-accelerate">
@@ -55,7 +55,7 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
 
       {/* Stock Price Chart */}
       <div className="max-w-7xl mx-auto animate-fade-in-up delay-700 hardware-accelerate">
-        <div className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-500 ease-out hover:border-[#00b14f]/50 hover:shadow-lg hover:shadow-[#00b14f]/10 hover:scale-[1.01] rounded-3xl p-8">
+        <div className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-500 ease-out hover:border-brand-green/50 hover:shadow-lg hover:shadow-brand-green/10 hover:scale-[1.01] rounded-3xl p-8">
           <div className="mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
               {messages.dashboard.chartTitle}
@@ -84,7 +84,7 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
                 <Tooltip 
                   contentStyle={{
                     backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                    border: '1px solid rgba(0, 177, 79, 0.3)',
+                    border: '1px solid rgba(37, 146, 68, 0.3)',
                     borderRadius: '12px',
                     color: 'white'
                   }}
@@ -94,9 +94,9 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
                 <Line 
                   type="monotone" 
                   dataKey="price" 
-                  stroke="#00B14F" 
+                  stroke="#259244" 
                   strokeWidth={4}
-                  dot={{ fill: '#00B14F', strokeWidth: 2, r: 8 }}
+                  dot={{ fill: '#259244', strokeWidth: 2, r: 8 }}
                   name={messages.dashboard.tooltipPrice}
                 />
               </LineChart>
@@ -106,7 +106,7 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
           {/* Chart Legend */}
           <div className="flex flex-wrap justify-center gap-6 mt-6">
             <div className="flex items-center gap-2 transition-all duration-300 hover:scale-105">
-              <div className="w-4 h-1 bg-[#00B14F] rounded animate-scale-x delay-1200"></div>
+              <div className="w-4 h-1 bg-brand-green rounded animate-scale-x delay-1200"></div>
               <span className="text-white/80 text-sm">{messages.dashboard.legend}</span>
             </div>
           </div>

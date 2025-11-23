@@ -4,9 +4,15 @@
     "home": "首页",
     "investment": "投资机会",
     "joinNow": "立即加入",
-    "Links": "链接"
+    "Links": "链接",
+    "blog": "博客"
   },
   "cta": {
     "joinUs": "加入我们"
+  },
+  "contact": {
+    "title": "联系我们",
+    "message": "我们随时为您提供帮助！如果您有任何问题、需要支持或想了解更多关于Bjeek的信息，请通过WhatsApp与我们联系。我们的团队随时准备为您提供所需的一切帮助。",
+    "whatsappButton": "在WhatsApp上与我们聊天"
   }
 } 

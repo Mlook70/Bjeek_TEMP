@@ -456,7 +456,7 @@
         
 //         {/* Brand Line */}
 //         <div 
-//           className="w-24 h-2 bg-[#00B14F] mx-auto rounded-full mb-8"
+//           className="w-24 h-2 bg-brand-green mx-auto rounded-full mb-8"
 //         />
 
 //         {/* CTA Buttons - HIDDEN */}
@@ -464,7 +464,7 @@
 //           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
 //         >
 //           <button
-//             className="bg-[#00B14F] hover:bg-[#00B14F]/90 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 min-w-[200px]"
+//             className="bg-brand-green hover:bg-brand-green/90 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 min-w-[200px]"
 //           >
 //             {messages.hero.getStarted}
 //           </button>

@@ -4,9 +4,15 @@
     "home": "ホーム",
     "investment": "投資機会",
     "joinNow": "今すぐ参加",
-    "Links": "リンク"
+    "Links": "リンク",
+    "blog": "ブログ"
   },
   "cta": {
     "joinUs": "参加する"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "message": "お手伝いさせていただきます！ご質問、サポートが必要な場合、またはBjeekについてもっと知りたい場合は、WhatsAppでお問い合わせください。チームは、必要なすべてのことをお手伝いする準備ができています。",
+    "whatsappButton": "WhatsAppでチャット"
   }
 } 

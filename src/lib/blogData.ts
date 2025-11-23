@@ -1,108 +1,133 @@
+// Blog posts data - fetched from Strapi API
+// API Endpoint: https://efficient-ball-115201e11a.strapiapp.com/api/blog-posts
+
+export interface SubSection {
+  id: number;
+  titleH3: string;
+  descTitleH3: string | null;
+}
+
+export interface Section {
+  id: number;
+  titleH2: string;
+  descTitleH2: string | null;
+  subSections: SubSection[] | null;
+}
+
+export interface BlogContent {
+  id: number;
+  overview: string | null;
+  conclusion: string | null;
+  cta: string | null;
+  sections: Section[] | null;
+}
+
+export interface BlogImage {
+  id: number;
+  documentId: string;
+  url: string;
+}
+
 export interface BlogPost {
+  id: number;
+  documentId: string;
   slug: string;
-  titleH1: {
-    ar: string;
-    en?: string;
-  };
-  description: {
-    ar: string;
-    en?: string;
-  };
-  content: {
-    ar: {
-      overview: string;
-      titleH2: string[];
-      descTitleH2: string[];
-      titleH3: string[];
-      descTitleH3: string[];
-      conclusion: string;
-      cta: string;
-    };
-    en?: {
-      overview: string;
-      titleH2: string[];
-      descTitleH2: string[];
-      titleH3: string[];
-      descTitleH3: string[];
-      conclusion: string;
-      cta: string;
-    };
-  };
-  category: {
-    ar: string;
-    en?: string;
-  };
-  tags: {
-    ar: string[];
-    en?: string[];
-  };
+  titleH1: string;
+  description: string;
+  category: string | null;
+  tags: string;
+  website: string;
+  image?: BlogImage | null;
+  createdAt: string;
+  updatedAt: string;
   publishedAt: string;
-  author: string;
-  readTime: string;
+  content: BlogContent;
 }
 
-export const blogPosts: BlogPost[] = [
-  {
-    slug: "ar5as-tatbiq-tawseel-mataem-2025",
-    titleH1: {
-      ar: "ارخص تطبيق توصيل مطاعم في السعودية 2025"
-    },
-    description: {
-      ar: "اكتشف أرخص تطبيق توصيل مطاعم في السعودية 2025 مع قراب! تمتع بأقل رسوم توصيل وأسرع خدمة لطلب طعامك المفضل بسهولة وتوفير."
-    },
-    content: {
-      ar: {
-        overview: "في ظل تسارع وتيرة الحياة اليومية وتزايد الاعتماد على الحلول الرقمية، أصبح توصيل الطعام جزءاً لا يتجزأ من نمط الحياة الحديثة. شهد هذا القطاع نمواً هائلاً وتنافساً محموماً، مدفوعاً بعجلة التحول الرقمي ورؤية المملكة 2030. في خضم هذا السباق بين عشرات التطبيقات، يبرز سؤال جوهري لدى المستهلك: كيف يمكنني الحصول على وجبتي المفضلة بأفضل جودة وأقل تكلفة ممكنة؟ وهنا يظهر تطبيق قراب، الذي وُلد من رحم الحاجة لحل هذه المعادلة الصعبة بين الجودة والسعر والسرعة، ليكون الخيار الأذكى والأرخص لتوصيل المطاعم في المملكة.",
-        titleH2: [
-          "ثورة توصيل الطعام في المملكة وكيف يقود \"قراب\" التغيير",
-          "لماذا يُعد \"قراب\" الخيار الأكثر توفيراً في عام 2025؟",
-          "استكشاف مزايا تطبيق \"قراب\": تجربة تتجاوز مجرد التوصيل",
-          "استراتيجيات التوفير القصوى مع \"قراب\": أكثر من مجرد كود خصم",
-          "أسئلة شائعة حول تطبيق \"قراب\"",
-          "\"قراب\" ليس مجرد تطبيق، بل شريكك اليومي للتوفير والجودة"
-        ],
-        descTitleH2: [
-          "شهدت المملكة العربية السعودية خلال السنوات القليلة الماضية تحولاً جذرياً في سلوكيات المستهلكين، مدفوعاً بانتشار الهواتف الذكية وتغلغل الإنترنت في كل منزل. اليوم، أصبح طلب الطعام لا يتطلب سوى بضع نقرات، حيث يمكنك تصفح مئات المطاعم المحلية والعالمية وإتمام طلبك ليصل إلى بابك بسرعة. وسط هذا التطور الكبير، برزت تحديات مثل ارتفاع رسوم التوصيل وتفاوت الأسعار، مما جعل المستخدم في حيرة بين التطبيقات. هنا جاء قراب بفلسفة مختلفة تركز على القيمة والتوفير دون التضحية بالجودة.",
-          "ادعاء أن قراب هو الأرخص قد يبدو جريئاً، لكنه يستند إلى بنية تحتية متكاملة ونموذج عمل دقيق صُمم لتقليل التكلفة النهائية على المستخدم. من خلال شراكات عادلة مع المطاعم، واعتماد خوارزميات ذكية لتحسين مسارات التوصيل وتجميع الطلبات، وهيكل تسعير شفاف خالٍ من الرسوم المخفية، يقدم قراب نموذجاً اقتصادياً فعّالاً يجعل تكلفة الطلب أقل مقارنة بالمنافسين.",
-          "يدرك قراب أن كونه الأرخص لا يعني التضحية بجودة التجربة الرقمية. لذلك، يوفر التطبيق واجهة استخدام سهلة ومريحة، ونظام تتبع لحظي، وخيارات دفع مرنة وآمنة تناسب الجميع، مما يجعل تجربة المستخدم ممتعة وسلسة من بداية الطلب حتى استلامه.",
-          "يقدم قراب أكثر من مجرد أكواد خصم، بل نظام توفير متكامل يكافئ المستخدمين الأوفياء من خلال اشتراكات التوصيل السريع غير المحدودة، والخصومات الحصرية، والعروض اليومية التي تجعل كل طلب تجربة أكثر توفيراً ومتعة.",
-          "يتناول هذا القسم أبرز الأسئلة الشائعة مثل كيفية ضمان رسوم التوصيل المنخفضة، وتوفر التطبيق في المدن المختلفة، وسياسات الدعم في حال تأخر الطلب أو حدوث خطأ، وإمكانية جدولة الطلبات أو الانضمام كأسطول توصيل.",
-          "يثبت قراب في النهاية أن الحصول على خدمة توصيل طعام ممتازة لا يجب أن يكون مكلفاً. فهو يجمع بين التقنية الحديثة، ونموذج العمل الذكي، والتركيز الحقيقي على احتياجات المستخدم السعودي لتقديم حل شامل يعيد تعريف القيمة في سوق توصيل المطاعم بالمملكة."
-        ],
-        titleH3: [
-          "واجهة استخدام مبتكرة ومصممة خصيصاً للمستخدم السعودي",
-          "نظام تتبع حي ودقيق: كن على اطلاع دائم بطلبك",
-          "خيارات دفع مرنة وآمنة تناسب الجميع",
-          "\"تطبيق قراب\": عالم من التوصيل السريع والخصومات الحصرية",
-          "العروض اليومية والصفقات الخاطفة: وجباتك المفضلة بسعر لا يصدق"
-        ],
-        descTitleH3: [
-          "واجهة عربية بالكامل بتصميم نظيف ومنظم يركز على سهولة الاستخدام، مع خطوط واضحة ومصطلحات محلية تجعل التجربة مألوفة ومريحة. تتيح خيارات البحث الذكي والتصفية حسب نوع المطبخ أو الوجبة أو السعر الأدنى للتوصيل، مما يجعل الوصول لطلبك المثالي أسرع وأسهل.",
-          "يوفر قراب نظام تتبع مباشر يتيح للمستخدم رؤية مراحل الطلب كاملة من لحظة تأكيده وحتى وصوله، مع إشعارات فورية وحركة الكابتن على الخريطة في الوقت الفعلي.",
-          "يفهم قراب تنوع تفضيلات الدفع في المجتمع السعودي، لذلك يوفر خيارات تشمل مدى، بطاقات الائتمان، Apple Pay، STC Pay، والدفع النقدي عند الاستلام، مع أعلى معايير الأمان عبر بوابات دفع مشفرة.",
-          "يمنح قراب مستخدميه اشتراكات شهرية للتوصيل السريع غير المحدود، وخصومات حصرية في مطاعم مختارة، وشراكات مع علامات تجارية في قطاعات أخرى، مما يجعل كل طلب استثماراً ذكياً لتوفير شهري كبير.",
-          "قسم خاص داخل التطبيق يقدم عروض اليوم وصفقات 1+1 وخصومات تصل إلى 50٪ على وجبات محددة، مع تحديث مستمر للعروض لجعل تجربة الطلب أكثر إثارة وتوفيراً."
-        ],
-        conclusion: "قراب ليس مجرد تطبيق توصيل طعام، بل هو شريكك الذكي الذي يجمع بين الجودة والتوفير، مصمم ليلبي احتياجات المستخدم السعودي بمرونة وشفافية، ويعيد تعريف تجربة توصيل الطعام في المملكة لعام 2025.",
-        cta: "للاستفسارات أو الشراكات، يمكن التواصل مباشرة عبر الرقم: 966542275005 لتجربة التوفير والجودة بنفسك."
-      }
-    },
-    category: {
-      ar: "تطبيقات توصيل الطعام"
-    },
-    tags: {
-      ar: ["توصيل مطاعم", "قراب", "تطبيقات سعودية", "2025"]
-    },
-    publishedAt: "2025-01-15",
-    author: "فريق بجيك",
-    readTime: "8 دقائق"
+export interface BlogApiResponse {
+  data: BlogPost[];
+  meta: {
+    pagination: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    };
+  };
+}
+
+const API_URL ='https://efficient-ball-115201e11a.strapiapp.com/api/blog-posts?filters[website][$eq]=bjeek&populate[image][fields][0]=url&populate[content][populate][sections][populate][subSections]=true';
+
+/**
+ * Fetches all blog posts from the Strapi API
+ * @returns Promise containing the blog posts array
+ */
+export async function fetchBlogPosts(): Promise<BlogPost[]> {
+  try {
+    const response = await fetch(API_URL, {
+      next: { revalidate: 3600 } // ISR: Revalidate every hour
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch blog posts: ${response.status} ${response.statusText}`);
+    }
+
+    const data: BlogApiResponse = await response.json();
+    return data.data;
+  } catch (error) {
+    console.error('Error fetching blog posts:', error);
+    return [];
   }
-];
-
-export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find(post => post.slug === slug);
 }
 
-export function getAllBlogPosts(): BlogPost[] {
-  return blogPosts.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+/**
+ * Fetches a single blog post by slug
+ * @param slug - The slug of the blog post (should be decoded)
+ * @returns Promise containing the blog post or null if not found
+ */
+export async function fetchBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+  try {
+    const posts = await fetchBlogPosts();
+    
+    // Decode the slug to handle URL-encoded Arabic characters
+    const decodedSlug = decodeURIComponent(slug);
+    
+    // Try to find with decoded slug first
+    let post = posts.find(p => p.slug === decodedSlug);
+    
+    // If not found, try with the original slug (in case it's already decoded)
+    if (!post) {
+      post = posts.find(p => p.slug === slug);
+    }
+    
+    // Also try normalizing Unicode characters for better matching
+    if (!post) {
+      const normalizedSlug = decodedSlug.normalize('NFC');
+      post = posts.find(p => p.slug.normalize('NFC') === normalizedSlug);
+    }
+    
+    return post || null;
+  } catch (error) {
+    console.error(`Error fetching blog post with slug "${slug}":`, error);
+    return null;
+  }
 }
+
+/**
+ * Gets all blog post slugs for static generation
+ * @returns Promise containing array of slugs
+ */
+export async function getAllBlogSlugs(): Promise<string[]> {
+  try {
+    const posts = await fetchBlogPosts();
+    return posts.map(post => post.slug);
+  } catch (error) {
+    console.error('Error fetching blog slugs:', error);
+    return [];
+  }
+}
+
+// Legacy export for backward compatibility (if needed)
+// This will need to be called asynchronously now
+export const blogPosts: BlogPost[] = [];
+

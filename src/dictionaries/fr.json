@@ -10,7 +10,8 @@
     "home": "Accueil",
     "investment": "Opportunité d'Investissement",
     "joinNow": "Rejoignez Maintenant",
-    "Links": "Liens"
+    "Links": "Liens",
+    "blog": "Blog"
   },
   "cta": {
     "joinUs": "Rejoignez-Nous"
@@ -137,5 +138,10 @@
     "priceLabel": "Prix des Actions (SAR)",
     "tooltipPrice": "Prix des Actions",
     "tooltipYear": "Année"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "message": "Nous sommes là pour vous aider ! Si vous avez des questions, besoin de support ou souhaitez en savoir plus sur Bjeek, contactez-nous via WhatsApp. Notre équipe est prête à vous aider avec tout ce dont vous avez besoin.",
+    "whatsappButton": "Discutez avec nous sur WhatsApp"
   }
 } 

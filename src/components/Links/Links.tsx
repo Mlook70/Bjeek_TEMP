@@ -107,8 +107,8 @@ export default function Links({ messages }: LinksProps) {
       subtitle: messages.Links.links.website.subtitle,
       icon: <FaGlobe />,
       href: '/',
-      color: 'from-green-950 to-green-900',
-      hoverColor: 'hover:bg-green-500/20'
+      color: 'from-brand-green/90 to-brand-green/80',
+      hoverColor: 'hover:bg-brand-green/20'
     },
     {
       id: 'document2',
@@ -116,8 +116,8 @@ export default function Links({ messages }: LinksProps) {
       subtitle: messages.Links.links.document2.subtitle,
       icon: <FaFileAlt />,
       href: 'https://drive.google.com/file/d/1XFTTO_BwqEWdK-Yqrw8u93p30y0mDxi4/view?usp=sharing',
-      color: 'from-green-900 to-green-950',
-      hoverColor: 'hover:bg-green-500/20',
+      color: 'from-brand-green/80 to-brand-green/90',
+      hoverColor: 'hover:bg-brand-green/20',
       external: true
     },
     {
@@ -126,8 +126,8 @@ export default function Links({ messages }: LinksProps) {
       subtitle: messages.Links.links.document4.subtitle,
       icon: <FaFileAlt />,
       href: 'https://drive.google.com/file/d/1Y3iT0gkGrv3Vd9odDHeB7TsiBqxj2I_E/view?usp=sharing',
-      color: 'from-green-900 to-green-950',
-      hoverColor: 'hover:bg-green-500/20',
+      color: 'from-brand-green/80 to-brand-green/90',
+      hoverColor: 'hover:bg-brand-green/20',
       external: true
     },
     {
@@ -136,8 +136,8 @@ export default function Links({ messages }: LinksProps) {
       subtitle: messages.Links.links.email.subtitle,
       icon: <FaEnvelope />,
       href: 'mailto:info@bjeek.sa',
-      color: 'from-green-950 to-green-900',
-      hoverColor: 'hover:bg-green-500/20',
+      color: 'from-brand-green/90 to-brand-green/80',
+      hoverColor: 'hover:bg-brand-green/20',
       external: true
     },
     {
@@ -146,8 +146,8 @@ export default function Links({ messages }: LinksProps) {
       subtitle: messages.Links.links.twitter.subtitle,
       icon: <XIcon />,
       href: 'https://x.com/bjeeksa',
-      color: 'from-green-900 to-green-800',
-      hoverColor: 'hover:bg-green-500/20',
+      color: 'from-brand-green/80 to-brand-green/70',
+      hoverColor: 'hover:bg-brand-green/20',
       external: true
     },
     {
@@ -156,8 +156,8 @@ export default function Links({ messages }: LinksProps) {
       subtitle: messages.Links.links.instagram.subtitle,
       icon: <Instagram />,
       href: 'https://www.instagram.com/bjeeksa/',
-      color: 'from-green-800 to-green-700',
-      hoverColor: 'hover:bg-green-500/20',
+      color: 'from-brand-green/70 to-brand-green/60',
+      hoverColor: 'hover:bg-brand-green/20',
       external: true
     },
     {
@@ -166,8 +166,8 @@ export default function Links({ messages }: LinksProps) {
       subtitle: messages.Links.links.snapchat.subtitle,
       icon: <FaSnapchatGhost />,
       href: 'https://www.snapchat.com/add/bjeeksa',
-      color: 'from-green-700 to-green-700',
-      hoverColor: 'hover:bg-green-500/20',
+      color: 'from-brand-green/60 to-brand-green/60',
+      hoverColor: 'hover:bg-brand-green/20',
       external: true
     },
     {
@@ -176,8 +176,8 @@ export default function Links({ messages }: LinksProps) {
       subtitle: messages.Links.links.tiktok.subtitle,
       icon: <FaTiktok />,
       href: 'https://www.tiktok.com/@bjeeksa',
-      color: 'from-green-700 to-green-800',
-      hoverColor: 'hover:bg-green-500/20',
+      color: 'from-brand-green/60 to-brand-green/70',
+      hoverColor: 'hover:bg-brand-green/20',
       external: true
     }
   ];
@@ -203,7 +203,7 @@ export default function Links({ messages }: LinksProps) {
             </p>
 
             {/* Decorative line */}
-            <div className="w-16 h-0.5 bg-[#00B14F] mx-auto mt-4 rounded-full animate-scale-x delay-600 hardware-accelerate" />
+            <div className="w-16 h-0.5 bg-brand-green mx-auto mt-4 rounded-full animate-scale-x delay-600 hardware-accelerate" />
           </div>
 
           {/* Links Container */}
