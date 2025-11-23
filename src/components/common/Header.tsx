@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
@@ -22,16 +22,30 @@ interface HeaderProps {
 
 const Header = ({ messages }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const locale = useLocale();
 
-  const navigationItems: Array<{ name: string; href: string; isButton?: boolean }> = [
+  // Ensure component is mounted before using pathname-dependent logic
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Memoize navigation items to ensure consistent order
+  // Use individual message properties to ensure stable dependencies
+  const navigationItems: Array<{ name: string; href: string; isButton?: boolean }> = useMemo(() => [
     { name: messages.navigation.home, href: `/${locale}` },
     { name: messages.navigation.blog, href: `/${locale}/blog` },
     { name: messages.navigation.Links, href: `/${locale}/links` },
     { name: messages.navigation.joinNow, href: `/${locale}/investment-form`, isButton: true }
-  ];
+  ], [
+    messages.navigation.home,
+    messages.navigation.blog,
+    messages.navigation.Links,
+    messages.navigation.joinNow,
+    locale
+  ]);
 
   const handleNavigation = (href: string) => {
     if (href.startsWith('#')) {
@@ -47,6 +61,7 @@ const Header = ({ messages }: HeaderProps) => {
   };
 
   const isActiveLink = (href: string) => {
+    if (!mounted || !pathname) return false;
     if (href === `/${locale}`) {
       return pathname === `/${locale}`;
     }
@@ -75,7 +90,7 @@ const Header = ({ messages }: HeaderProps) => {
           <nav className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
             {navigationItems.map((item) => (
               <button
-                key={item.name}
+                key={item.href}
                 onClick={() => handleNavigation(item.href)}
                 className={`
                   relative px-4 py-2 text-sm lg:text-base font-medium transition-all duration-300
@@ -135,7 +150,7 @@ const Header = ({ messages }: HeaderProps) => {
           <div className="py-4 space-y-2 border-t border-white/10">
             {navigationItems.map((item) => (
               <button
-                key={item.name}
+                key={item.href}
                 onClick={() => handleNavigation(item.href)}
                 className={`
                   block w-full ${locale === 'ar' ? 'text-right' : 'text-left'} px-4 py-3 text-base font-medium rounded-lg transition-all duration-200
