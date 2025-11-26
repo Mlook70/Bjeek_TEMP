@@ -40,7 +40,7 @@ const InvestmentOpportunity = ({ messages, locale }: InvestmentOpportunityProps)
         {/* Header */}
         <div className="text-center mb-20">
           <h2 
-            className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent text-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate"
+            className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate"
             style={{
               lineHeight: '1.3',
               paddingTop: '0.15em',

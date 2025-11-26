@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Check, AlertCircle, User, Phone, Package, MapPin, Calculator, Sparkles } from 'lucide-react';
+import { useTranslations, useLocale } from 'next-intl';
 import { useGTMAnalytics } from '@/hooks/useGTMAnalytics';
 
 interface FormErrors {
@@ -49,6 +50,8 @@ const getDiscountPercentage = (quantity: number): number => {
 
 const InvestmentFormClient: React.FC = () => {
   const analytics = useGTMAnalytics();
+  const t = useTranslations('investmentForm');
+  const locale = useLocale();
   
   const [form, setForm] = useState({
     fullName: '',
@@ -63,38 +66,39 @@ const InvestmentFormClient: React.FC = () => {
   const [hasStartedForm, setHasStartedForm] = useState(false);
 
   useEffect(() => {
-    analytics.trackPageView('investment_form', 'نموذج الاستثمار - بجيك');
-  }, [analytics]);
+    const pageTitle = locale === 'ar' ? 'نموذج الاستثمار - بجيك' : 'Investment Form - Bjeek';
+    analytics.trackPageView('investment_form', pageTitle);
+  }, [analytics, locale]);
 
   // Validation functions
   const validateFullName = (name: string): string | undefined => {
-    if (!name.trim()) return 'الاسم الكامل مطلوب';
-    if (name.trim().length < 3) return 'الاسم يجب أن يكون على الأقل 3 أحرف';
-    if (!/^[\u0600-\u06FFa-zA-Z\s]+$/.test(name.trim())) return 'يرجى إدخال اسم صحيح';
+    if (!name.trim()) return t('fullName.required');
+    if (name.trim().length < 3) return t('fullName.minLength');
+    if (!/^[\u0600-\u06FFa-zA-Z\s]+$/.test(name.trim())) return t('fullName.invalid');
     return undefined;
   };
 
   const validatePhoneNumber = (phone: string): string | undefined => {
-    if (!phone.trim()) return 'رقم الجوال مطلوب';
+    if (!phone.trim()) return t('phoneNumber.required');
     const cleanPhone = toEnglishDigits(phone.replace(/[\s\-()]/g, ''));
     if (!/^(\+966|966|05|5)?[0-9]{8,9}$/.test(cleanPhone)) {
-      return 'يرجى إدخال رقم جوال سعودي صحيح';
+      return t('phoneNumber.invalid');
     }
     return undefined;
   };
 
   const validateSharesQuantity = (shares: string): string | undefined => {
-    if (!shares || shares.toString().trim() === '') return 'عدد الأسهم مطلوب';
+    if (!shares || shares.toString().trim() === '') return t('sharesQuantity.required');
     const sharesNum = parseInt(toEnglishDigits(shares.toString()));
-    if (isNaN(sharesNum) || sharesNum <= 0) return 'يرجى إدخال عدد أسهم صحيح';
-    if (sharesNum < 5000) return 'الحد الأدنى للاستثمار هو 5000 سهم';
+    if (isNaN(sharesNum) || sharesNum <= 0) return t('sharesQuantity.invalid');
+    if (sharesNum < 5000) return t('sharesQuantity.minInvestment');
     return undefined;
   };
 
   const validateCity = (city: string): string | undefined => {
-    if (!city.trim()) return 'المدينة مطلوبة';
-    if (city.trim().length < 2) return 'اسم المدينة يجب أن يكون على الأقل حرفين';
-    if (!/^[\u0600-\u06FFa-zA-Z\s\-]+$/.test(city.trim())) return 'يرجى إدخال اسم مدينة صحيح';
+    if (!city.trim()) return t('city.required');
+    if (city.trim().length < 2) return t('city.minLength');
+    if (!/^[\u0600-\u06FFa-zA-Z\s\-]+$/.test(city.trim())) return t('city.invalid');
     return undefined;
   };
 
@@ -177,7 +181,7 @@ const InvestmentFormClient: React.FC = () => {
           currency: 'SAR',
           items: [{
             item_id: 'BJEEK_SHARES',
-            item_name: 'أسهم بجيك',
+            item_name: locale === 'ar' ? 'أسهم بجيك' : 'Bjeek Shares',
             quantity: sharesQuantity,
             price: dynamicSharePrice
           }]
@@ -196,25 +200,25 @@ const InvestmentFormClient: React.FC = () => {
       } else {
         const errorMessage = data.details?.[0]?.message || 
                            data.message || 
-                           'حدث خطأ في الإرسال، يرجى المحاولة مرة أخرى';
+                           t('error.default');
         setError(errorMessage);
       }
     } catch {
-      setError('تعذر الاتصال بالخادم، يرجى التأكد من الاتصال بالإنترنت والمحاولة مرة أخرى');
+      setError(t('error.network'));
     } finally {
       setLoading(false);
     }
   };
 
   const getPackageType = (quantity: number): string => {
-    if (quantity >= 1000000) return 'الذهبية';
-    if (quantity >= 500000) return 'البلاتينية';
-    if (quantity >= 350000) return 'الماسية';
-    if (quantity >= 250000) return 'الذهبية';
-    if (quantity >= 120000) return 'الفضية';
-    if (quantity >= 50000) return 'البرونزية';
-    if (quantity >= 15000) return 'المتقدمة';
-    return 'الأساسية';
+    if (quantity >= 1000000) return t('packages.golden');
+    if (quantity >= 500000) return t('packages.platinum');
+    if (quantity >= 350000) return t('packages.diamond');
+    if (quantity >= 250000) return t('packages.golden');
+    if (quantity >= 120000) return t('packages.silver');
+    if (quantity >= 50000) return t('packages.bronze');
+    if (quantity >= 15000) return t('packages.advanced');
+    return t('packages.basic');
   };
 
   const sharePrice = 4;
@@ -227,7 +231,7 @@ const InvestmentFormClient: React.FC = () => {
 
   return (
     <div 
-      className="min-h-screen py-20 px-4 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      className="h-screen pb-20 pt-32 px-4 relative overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: 'url(/bjeek-background.jpg)'
       }}
@@ -238,17 +242,17 @@ const InvestmentFormClient: React.FC = () => {
       <div className="relative z-10 max-w-2xl mx-auto">
         {/* Compact Header */}
         <div className="text-center mb-2">
-          <h1 className="text-3xl md:text-4xl font-bold text-white  mb-2 drop-shadow-lg">
-            استثمر معنا الآن
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg">
+            {t('title')}
           </h1>
           <p className="text-white mb-4 text-sm md:text-base drop-shadow">
-            انضم إلى آلاف المستثمرين الناجحين واستثمر في مستقبلك المالي
+            {t('subtitle')}
           </p>
           
           {/* Compact Share Price Display */}
           <div className="inline-flex items-center gap-3 bg-green-600 backdrop-blur-xl border border-green-600 rounded-xl px-4 py-2 relative shadow-lg shadow-green-400/20">
             <div className="absolute inset-0 bg-green-400/10 rounded-xl"></div>
-            <span className="text-white text-sm relative z-10 font-medium">سعر السهم</span>
+            <span className="text-white text-sm relative z-10 font-medium">{t('sharePrice')}</span>
             {discountPercentage > 0 && (
               <span className="text-white line-through text-sm relative z-10">
                 {formatCurrency(originalPrice)}
@@ -259,7 +263,7 @@ const InvestmentFormClient: React.FC = () => {
             </span>
             {discountPercentage > 0 && (
               <span className="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold relative z-10 animate-pulse">
-                خصم {discountPercentage}%
+                {t('discount')} {discountPercentage}%
               </span>
             )}
           </div>
@@ -280,11 +284,11 @@ const InvestmentFormClient: React.FC = () => {
                   <Check className="text-white" size={24} />
                 </div>
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-green-500 to-green-500 bg-clip-text text-transparent mb-3">
-                  تم الإرسال بنجاح!
+                  {t('success.title')}
                 </h3>
                 <p className="text-gray-200">
-                  شكراً لك على اهتمامك بالاستثمار معنا<br />
-                  <span className="font-semibold text-green-500">سيتم التواصل معك خلال 24 ساعة</span>
+                  {t('success.message')}<br />
+                  <span className="font-semibold text-green-500">{t('success.contact')}</span>
                 </p>
               </div>
             ) : (
@@ -294,13 +298,13 @@ const InvestmentFormClient: React.FC = () => {
                   
                   {/* Full Name */}
                   <div className="space-y-2">
-                    <label className="block text-green-500 font-medium text-right text-sm">الاسم الكامل</label>
+                    <label className="block text-green-500 font-medium text-sm">{t('fullName.label')}</label>
                     <div className="relative">
                       <User size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                       <input
                         type="text"
                         name="fullName"
-                        placeholder="أدخل اسمك الكامل"
+                        placeholder={t('fullName.placeholder')}
                         value={form.fullName}
                         onChange={(e) => handleChange('fullName', e.target.value)}
                         className={`w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-md border rounded-xl transition-all duration-300 text-white placeholder:text-gray-400 text-right focus:outline-none focus:ring-2 focus:ring-green-500/50 ${
@@ -321,13 +325,13 @@ const InvestmentFormClient: React.FC = () => {
                   
                   {/* Phone Number */}
                   <div className="space-y-2">
-                    <label className="block text-green-500 font-medium text-right text-sm">رقم الجوال</label>
+                    <label className="block text-green-500 font-medium text-sm">{t('phoneNumber.label')}</label>
                     <div className="relative">
                       <Phone size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                       <input
                         type="tel"
                         name="phoneNumber"
-                        placeholder="05xxxxxxxx"
+                        placeholder={t('phoneNumber.placeholder')}
                         value={form.phoneNumber}
                         onChange={(e) => handleChange('phoneNumber', e.target.value)}
                         className={`w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-md border rounded-xl transition-all duration-300 text-white placeholder:text-gray-400 text-right focus:outline-none focus:ring-2 focus:ring-green-500/50 ${
@@ -348,14 +352,14 @@ const InvestmentFormClient: React.FC = () => {
                   
                   {/* Shares Quantity */}
                   <div className="space-y-2">
-                    <label className="block text-green-500 font-medium text-right text-sm">عدد الأسهم</label>
+                    <label className="block text-green-500 font-medium text-sm">{t('sharesQuantity.label')}</label>
                     <div className="relative">
                       <Package size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                       <input
                         type="text"
                         inputMode="numeric"
                         name="sharesQuantity"
-                        placeholder="الحد الأدنى: 5000"
+                        placeholder={t('sharesQuantity.placeholder')}
                         value={form.sharesQuantity}
                         onChange={(e) => handleChange('sharesQuantity', e.target.value)}
                         className={`w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-md border rounded-xl transition-all duration-300 text-white placeholder:text-gray-400 text-right focus:outline-none focus:ring-2 focus:ring-green-500/50 ${
@@ -376,13 +380,13 @@ const InvestmentFormClient: React.FC = () => {
                   
                   {/* City */}
                   <div className="space-y-2">
-                    <label className="block text-green-500 font-medium text-right text-sm">المدينة</label>
+                    <label className="block text-green-500 font-medium text-sm">{t('city.label')}</label>
                     <div className="relative">
                       <MapPin size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                       <input
                         type="text"
                         name="city"
-                        placeholder="أدخل مدينتك"
+                        placeholder={t('city.placeholder')}
                         value={form.city}
                         onChange={(e) => handleChange('city', e.target.value)}
                         className={`w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-md border rounded-xl transition-all duration-300 text-white placeholder:text-gray-400 text-right focus:outline-none focus:ring-2 focus:ring-green-500/50 ${
@@ -408,7 +412,7 @@ const InvestmentFormClient: React.FC = () => {
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2 text-green-500">
                         <Calculator size={18} />
-                        <span className="font-bold">حاسبة الاستثمار</span>
+                        <span className="font-bold">{t('calculator.title')}</span>
                       </div>
                       <div className="text-2xl font-bold bg-gradient-to-r from-green-500 to-green-500 bg-clip-text text-transparent">
                         {formatCurrency(calculatedTotal)}
@@ -417,13 +421,13 @@ const InvestmentFormClient: React.FC = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-center">
                       <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg p-3">
-                        <div className="text-gray-400 text-xs mb-1">عدد الأسهم</div>
+                        <div className="text-gray-400 text-xs mb-1">{t('calculator.sharesCount')}</div>
                         <div className="text-lg font-bold text-white">{formatNumber(sharesQuantityNum)}</div>
                       </div>
                       
                       {/* Share Price Section with Before/After Discount */}
                       <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg p-3">
-                        <div className="text-gray-400 text-xs mb-1">سعر السهم</div>
+                        <div className="text-gray-400 text-xs mb-1">{t('calculator.sharePrice')}</div>
                         <div className="flex items-center justify-center gap-2">
                           {discountPercentage > 0 ? (
                             <>
@@ -442,14 +446,14 @@ const InvestmentFormClient: React.FC = () => {
                         </div>
                         {discountPercentage > 0 && (
                           <div className="text-xs text-red-300 mt-1">
-                            خصم {discountPercentage}%
+                            {t('discount')} {discountPercentage}%
                           </div>
                         )}
                       </div>
                       
                       {totalSavings > 0 && (
                         <div className="bg-red-500/10 backdrop-blur-md border border-red-500/30 rounded-lg p-3 col-span-1 md:col-span-2">
-                          <div className="text-red-300 text-xs mb-1">إجمالي التوفير</div>
+                          <div className="text-red-300 text-xs mb-1">{t('calculator.totalSavings')}</div>
                           <div className="text-lg font-bold text-red-300">{formatCurrency(totalSavings)}</div>
                         </div>
                       )}
@@ -476,12 +480,12 @@ const InvestmentFormClient: React.FC = () => {
                     {loading ? (
                       <>
                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        جاري الإرسال...
+                        {t('submit.loading')}
                       </>
                     ) : (
                       <>
                         <Sparkles size={20} />
-                        إرسال طلب الاستثمار
+                        {t('submit.default')}
                       </>
                     )}
                   </div>

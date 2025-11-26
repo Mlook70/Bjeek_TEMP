@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
-import LanguageSwitcher from './LanguageSwitcher';
+import LanguageSwitcher from '@/components/common/LanguageSwitcher';
 
 interface MessagesType {
   navigation: {

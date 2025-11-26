@@ -2,10 +2,8 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { FaWhatsapp } from 'react-icons/fa';
-import LanguageSwitcher from '@/components/common/LanguageSwitcher';
 import '@/styles/animations.css';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const WHATSAPP_NUMBER = "966561482760"; // Same number from WhatsAppFloatingButton
 
@@ -13,24 +11,7 @@ const Contact: React.FC = () => {
   const t = useTranslations('contact');
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-4 py-20 relative overflow-hidden">
-      {/* Language Switcher - Top Right */}
-      <div className="absolute top-4 right-4 md:top-6 md:right-6 z-20 animate-fade-in delay-200 hardware-accelerate">
-        <LanguageSwitcher />
-      </div>
-
-      {/* Logo - Centered at Top */}
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20 animate-fade-in delay-200 hardware-accelerate">
-        <Image
-          src="/Logo.png"
-          alt="Bjeek Logo"
-          width={300}
-          height={300}
-          sizes="(max-width: 768px) 160px, 240px"
-          className="object-contain w-32 md:w-48 lg:w-56 h-auto"
-          priority
-        />
-      </div>
+    <div className="h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
 
       {/* Background Gradient Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

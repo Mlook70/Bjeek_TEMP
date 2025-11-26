@@ -6,7 +6,7 @@ import { GoogleTagManager } from '@next/third-parties/google'
 import Script from 'next/script';
 
 import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
-import ConditionalLayout from '@/components/common/ConditionalLayout';
+import ConditionalLayout from '@/components/layouts/ConditionalLayout';
 
 import "../globals.css";
 

@@ -45,7 +45,7 @@ const InvestmentDashboard: React.FC<InvestmentDashboardProps> = ({ messages }) =
     <section className="py-20 px-6 relative">
       {/* Section Header */}
       <div className="text-center mb-16 max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-transparent text-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-relaxed animate-fade-in-scale delay-300 hardware-accelerate">
           {messages.dashboard.title}
         </h2>
         <p className="text-white/80 text-2xl md:text-3xl lg:text-4xl leading-relaxed animate-fade-in-up delay-500 hardware-accelerate">

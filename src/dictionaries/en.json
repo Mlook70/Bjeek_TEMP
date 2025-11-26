@@ -180,5 +180,66 @@
     "title": "Contact Us",
     "message": "We're here to help! If you have any questions, need support, or want to learn more about Bjeek, please reach out to us via WhatsApp. Our team is ready to assist you with anything you need.",
     "whatsappButton": "Chat with us on WhatsApp"
+  },
+  "investmentForm": {
+    "title": "Invest with Us Now",
+    "subtitle": "Join thousands of successful investors and invest in your financial future",
+    "sharePrice": "Share Price",
+    "discount": "Discount",
+    "fullName": {
+      "label": "Full Name",
+      "placeholder": "Enter your full name",
+      "required": "Full name is required",
+      "minLength": "Name must be at least 3 characters",
+      "invalid": "Please enter a valid name"
+    },
+    "phoneNumber": {
+      "label": "Phone Number",
+      "placeholder": "05xxxxxxxx",
+      "required": "Phone number is required",
+      "invalid": "Please enter a valid Saudi phone number"
+    },
+    "sharesQuantity": {
+      "label": "Number of Shares",
+      "placeholder": "Minimum: 5000",
+      "required": "Number of shares is required",
+      "invalid": "Please enter a valid number of shares",
+      "minInvestment": "Minimum investment is 5000 shares"
+    },
+    "city": {
+      "label": "City",
+      "placeholder": "Enter your city",
+      "required": "City is required",
+      "minLength": "City name must be at least 2 characters",
+      "invalid": "Please enter a valid city name"
+    },
+    "calculator": {
+      "title": "Investment Calculator",
+      "sharesCount": "Number of Shares",
+      "sharePrice": "Share Price",
+      "totalSavings": "Total Savings"
+    },
+    "submit": {
+      "default": "Submit Investment Request",
+      "loading": "Submitting..."
+    },
+    "success": {
+      "title": "Successfully Sent!",
+      "message": "Thank you for your interest in investing with us",
+      "contact": "We will contact you within 24 hours"
+    },
+    "error": {
+      "default": "An error occurred while sending, please try again",
+      "network": "Unable to connect to server, please check your internet connection and try again"
+    },
+    "packages": {
+      "golden": "Golden",
+      "platinum": "Platinum",
+      "diamond": "Diamond",
+      "silver": "Silver",
+      "bronze": "Bronze",
+      "advanced": "Advanced",
+      "basic": "Basic"
+    }
   }
 } 
