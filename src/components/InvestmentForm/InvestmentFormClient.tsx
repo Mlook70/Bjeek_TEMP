@@ -231,10 +231,7 @@ const InvestmentFormClient: React.FC = () => {
 
   return (
     <div 
-      className="min-h-screen py-32 px-4 relative bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: 'url(/bjeek-background.jpg)'
-      }}
+      className="min-h-screen py-16 px-4 relative bg-cover bg-center bg-no-repeat"
     >
       {/* Dark overlay for better text readability */}
       <div className="fixed inset-0 bg-black/70 -z-10" />

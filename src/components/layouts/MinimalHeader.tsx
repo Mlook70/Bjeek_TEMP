@@ -10,7 +10,7 @@ export default function MinimalHeader() {
   const locale = useLocale();
 
   return (
-    <header className="fixed pt-6 top-0 left-0 right-0 z-50 delay-200 hardware-accelerate">
+    <header className="fixed pt-6 top-0 left-0 right-0 z-50 bg-black delay-200 hardware-accelerate">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center h-16 md:h-20">
           {/* Left spacer for balance */}

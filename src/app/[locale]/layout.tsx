@@ -7,6 +7,7 @@ import Script from 'next/script';
 
 import WhatsAppFloatingButton from '@/components/common/WhatsAppFloatingButton';
 import ConditionalLayout from '@/components/layouts/ConditionalLayout';
+import { Analytics } from '@vercel/analytics/next';
 
 import "../globals.css";
 
@@ -256,6 +257,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           <NextIntlClientProvider messages={messages} locale={locale}>
             <ConditionalLayout messages={messages}>
               {children}
+              <Analytics />
               <WhatsAppFloatingButton />
             </ConditionalLayout>
           </NextIntlClientProvider>
