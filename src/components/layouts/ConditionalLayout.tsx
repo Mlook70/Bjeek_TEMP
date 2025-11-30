@@ -1,6 +1,5 @@
 'use client'
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
 import Header from '@/components/layouts/Header';
 import Footer from '@/components/layouts/Footer';
 import MinimalHeader from '@/components/layouts/MinimalHeader';
@@ -57,23 +56,6 @@ export default function ConditionalLayout({ children, messages }: ConditionalLay
   const pathname = usePathname();
   const shouldHideLayout = pathname?.includes('/contact') || pathname?.includes('/investment-form-minimal');
   
-  // Disable scrolling on contact and investment-form-minimal pages
-  useEffect(() => {
-    if (shouldHideLayout) {
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    }
-    
-    // Cleanup function to restore scrolling when component unmounts or pathname changes
-    return () => {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    };
-  }, [shouldHideLayout]);
-  
   return (
     <>
       {shouldHideLayout ? (
@@ -81,7 +63,7 @@ export default function ConditionalLayout({ children, messages }: ConditionalLay
       ) : (
         <Header messages={messages as { navigation: NonNullable<typeof messages.navigation> }} />
       )}
-      <main className={shouldHideLayout ? "flex-1 overflow-hidden" : "pt-16 md:pt-20 flex-1"}>
+      <main className={shouldHideLayout ? "pt-12 md:pt-12" : "pt-16 md:pt-20 flex-1"}>
         {children}
       </main>
       {!shouldHideLayout && <Footer messages={messages as { footer: NonNullable<typeof messages.footer>; cta: NonNullable<typeof messages.cta> }} />}
