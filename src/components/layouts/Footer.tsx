@@ -3,7 +3,7 @@
 import React from 'react';
 import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { Mail, Phone, MapPin, Twitter, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Twitter, Instagram, Facebook, Youtube, Linkedin } from 'lucide-react';
 import { FaTiktok, FaSnapchatGhost } from 'react-icons/fa';
 import Image from 'next/image';
 import '@/styles/animations.css';
@@ -57,7 +57,10 @@ const Footer = ({ messages }: FooterProps) => {
     { icon: Twitter, href: 'https://x.com/bjeeksa', label: 'X (Twitter)' },
     { icon: Instagram, href: 'https://www.instagram.com/bjeeksa/', label: 'Instagram' },
     { icon: FaTiktok, href: 'https://www.tiktok.com/@bjeeksa', label: 'TikTok' },
-    { icon: FaSnapchatGhost, href: 'https://www.snapchat.com/add/bjeeksa', label: 'Snapchat' }
+    { icon: FaSnapchatGhost, href: 'https://www.snapchat.com/add/bjeeksa', label: 'Snapchat' },
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61583990086628&locale=ar_AR', label: 'Facebook' },
+    { icon: Youtube, href: 'https://www.youtube.com/@Bjeekapp', label: 'YouTube' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/bjeek-app/about/', label: 'LinkedIn' }
   ];
 
   const quickLinksMap: Record<string, string> = {
